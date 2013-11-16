@@ -1,0 +1,10 @@
+#all {
+	width: 800px;
+	min-height: 1200px;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #C3DEFA;
+	border-radius: 12px;
+}
+
