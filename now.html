@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+    	<title>EntertainMe - now</title>
+    	<link rel="stylesheet" type="text/css" href="mainpages.css">
+    	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  	</head>
+  	<body>
+  		<?php 
+  			require 'connect.php';
+  			?>
+  		<div id="all">
+
+	  		<div class="logo">
+	  			Logo area.
+	  		</div>
+
+	  		<div id="navigation">
+					<div id="mainbar">
+						<ul>
+							<li class="current">
+							<a href="now.html">Now</a>
+							</li>
+							<li class="#">
+								<a href="later.html">Later</a>
+							</li>
+							<li class="#">
+								<a href="archive.html">Archive</a>
+							</li>
+							<li id="username" class="#">
+								<a href="">
+									<?php
+									/*select the current username*/
+									?>
+								</a>
+							<li id="settings" class="#">
+								<a href="usersettings.html">Settings</a>
+							</li>
+							<li id="logout" class="#">
+								<a href="logout.php">Logout</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="main">
+					<h2>Now</h2>
+		  		<p class="description">Description of the now page</p>
+					<div id="accordion">
+						<h3>Movies</h3>
+						<div class="moviedata">
+							<!--DATA LOADED HERE-->
+						</div>
+					  <h3>TV Shows</h3>
+					  <div class="tvdata">
+					  	<!--DATA LOADED HERE-->
+					  </div>
+					</div>
+				</div>
+
+		  	<div id="footer"></div>
+		  	</div>
+  	</body>
+
+  	
+  	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+  	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  	<script type="text/javascript">
+	  	$(function() {
+	  		var icons = {
+	  			header: "ui-icon-circle-arrow-e",
+	  			activeHeader: "ui-icon-circle-arrow-s"
+	  		};
+	  		$( "#accordion" ).accordion( {
+	  			active: false,
+	  			collapsible: true,
+	  			icons: icons,
+	  			heightStyle: "content"
+	  		});
+	  		$( "#accordion" ).accordion( {
+	  			
+	  		});
+	  		$( "#toggle" ).button().click(function() {
+		      if ( $( "#accordion" ).accordion( "option", "icons" ) ) {
+		        $( "#accordion" ).accordion( "option", "icons", null );
+		      } else {
+		        $( "#accordion" ).accordion( "option", "icons", icons );
+		      }
+    		});
+	  	});
+
+	  	$(document).ready(function() {
+        $.ajax({
+          url: "load.php",
+          complete: function(data) {
+          	$("#accordion .moviedata").html(data.responseText);
+          	//$("#accordion .tvdata").html("");
+
+          }
+          });
+      });
+		</script>
+
+</html>
