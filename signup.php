@@ -67,8 +67,19 @@
 <html>
 <head>
         <title>Sign up</title>
+        <link rel="stylesheet" type="text/css" href="mainpages.css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 </head>
 <body>
+  <div id="all">
+    <div class="logo">
+      Logo area.
+    </div>
+    <div id="navigation">
+      <div id="mainbar">     
+      </div>
+    </div>
+    <div id="main">
         <h1>Sign up</h1>
         <?php if (isset($msg)) echo "<p>$msg</p>" ?>
           <form method="post" action="signup.php">
@@ -83,5 +94,7 @@
               <input name="quit" type="submit" value="Cancel" />
             </form>
           </form>
+    </div>
+  </div>
 </body>
 </html>
