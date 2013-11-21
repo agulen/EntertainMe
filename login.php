@@ -64,7 +64,6 @@ if (isset($_POST['signup']) && $_POST['signup'] == 'Signup') {
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="mainpages.css">
     <link rel="stylesheet" type="text/css" href="login.css">
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   </head>
   <body>
     <div id="all">
