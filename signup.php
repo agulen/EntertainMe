@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="mainpages.css">
-
 <?php
   session_start();
   
@@ -67,7 +65,7 @@
 <html>
 <head>
         <title>Sign up</title>
-        <link rel="stylesheet" type="text/css" href="mainpages.css">
+        <link rel="stylesheet" type="text/css" href="login.css">
 </head>
 <body>
   <div id="all">
