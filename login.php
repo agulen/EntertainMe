@@ -62,7 +62,6 @@ if (isset($_POST['signup']) && $_POST['signup'] == 'Signup') {
 <html>
   <head>
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="mainpages.css">
     <link rel="stylesheet" type="text/css" href="login.css">
   </head>
   <body>
