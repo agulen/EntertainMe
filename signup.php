@@ -68,7 +68,6 @@
 <head>
         <title>Sign up</title>
         <link rel="stylesheet" type="text/css" href="mainpages.css">
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 </head>
 <body>
   <div id="all">
