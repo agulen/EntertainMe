@@ -1,0 +1,41 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+html {
+	overflow-y:scroll;
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+}
+body {
+	text-align: center;
+	margin-top: 40px;
+	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+	padding: 0;
+}
+
+#mainbar {
+	font-size: 14px;
+	font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+	float: left;
+	top:0;
+	z-index: 999;
+	padding:0px 10px;
+	position:fixed;
+	width:100%;
+	background:#2D2D2D;
+	height:32px;
+}
+
+#logo {
+	padding-top: 100px;
+}
+
+#main {
+	margin: 0 auto;
+	padding-top: 100px; 
+}
+
+
