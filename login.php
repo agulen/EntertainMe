@@ -62,13 +62,25 @@ if (isset($_POST['signup']) && $_POST['signup'] == 'Signup') {
 <html>
   <head>
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="mainpages.css">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   </head>
   <body>
-    <?php if (isset($_SESSION['username'])):
+    <div id="all">
+    <div class="logo">
+      Logo area.
+    </div>
+    <div id="navigation">
+      <div id="mainbar">     
+      </div>
+    </div>
+    <div id="main">
+      <?php if (isset($_SESSION['username'])):
               header('Location: now.html');
               exit();
            ?>
-    <?php else : ?>
+      <?php else : ?>
       <h1>Login</h1>
       <?php if (isset($err)) echo "<p>$err</p>" ?>
       <form method="post" action="login.php">
@@ -78,6 +90,8 @@ if (isset($_POST['signup']) && $_POST['signup'] == 'Signup') {
         <input name="login" type="submit" value="Login" />
         <input name="signup" type="submit" value="Signup" />
       </form>
-    <?php endif; ?>
+      <?php endif; ?>
+      </div>
+    </div>
   </body>
 </html>
