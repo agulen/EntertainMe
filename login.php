@@ -63,6 +63,7 @@ if (isset($_POST['signup']) && $_POST['signup'] == 'Signup') {
   <head>
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="login.css">
+    <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div id="all">
@@ -91,5 +92,9 @@ if (isset($_POST['signup']) && $_POST['signup'] == 'Signup') {
       <?php endif; ?>
       </div>
     </div>
+    <div id="footer">
+        <li><a href="about.php">About</a></li>
+        <li><a href="contact.php">Contact</a></li>
+      </div>
   </body>
 </html>
