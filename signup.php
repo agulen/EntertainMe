@@ -66,6 +66,7 @@
 <head>
         <title>Sign up</title>
         <link rel="stylesheet" type="text/css" href="login.css">
+        <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div id="all">
@@ -91,6 +92,10 @@
               <input name="quit" type="submit" value="Cancel" />
             </form>
           </form>
+    </div>
+    <div id="footer">
+      <li><a href="about.php">About</a></li>
+      <li><a href="contact.php">Contact</a></li>
     </div>
   </div>
 </body>
