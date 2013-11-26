@@ -27,6 +27,12 @@
       $msg = "Passwords must match.";
     }
     else {
+      if (!isset($_POST['admin']) || empty($_POST['admin'])) {
+        $is_admin = 0;
+      }
+      else {
+        $is_admin = $_POST['admin'] == 'Admin';
+      }
       // Generate random salt
       $salt = hash('sha256', uniqid(mt_rand(), true));      
 
@@ -34,13 +40,13 @@
       $salted = hash('sha256', $salt . $_POST['pass']);
       
       // Store the salt with the password, so we can apply it again and check the result
-      $stmt = $dbconn->prepare("INSERT INTO userlogin (username, password, salt) VALUES (:username, :pass, :salt)");
-      $stmt->execute(array(':username' => $_POST['username'], ':pass' => $salted, ':salt' => $salt));
+      $stmt = $dbconn->prepare("INSERT INTO userlogin (username, password, salt, is_admin) VALUES (:username, :pass, :salt, :admin)");
+      $stmt->execute(array(':username' => $_POST['username'], ':pass' => $salted, ':salt' => $salt, ':admin' => $is_admin));
       $msg = "Account created.";
     }
   }
 
-    if (isset($_POST['remove']) && $_POST['remove'] == 'Remove') {
+  if (isset($_POST['remove']) && $_POST['remove'] == 'Remove') {
     
     
     if (!isset($_POST['username']) || !isset($_POST['userconfirm']) || empty($_POST['username']) || empty($_POST['userconfirm']) ) {
@@ -72,7 +78,7 @@
     if (isset($_POST['remove_item']) && $_POST['remove_item'] == 'Remove') {
     
     
-    if (!isset($_POST['title']) || !isset($_POST['titleconfirm']) || !isset($_POST['item_type']) || empty($_POST['title']) || empty($_POST['titleconfirm']) || empty($_POST['item_type']) ) {
+    if (!isset($_POST['title']) || !isset($_POST['titleconfirm']) || empty($_POST['title']) || empty($_POST['titleconfirm']) ) {
       $msg = "Please fill in all form fields.";
     }
     else if ($_POST['title'] !== $_POST['titleconfirm']) {
@@ -80,8 +86,72 @@
     }
     else {
       $stmt = $dbconn->prepare("DELETE FROM entertainment WHERE title = :title");
-      $stmt->execute(array(':database' => $_POST['item_type'], ':title' => $_POST['title']));
+      $stmt->execute(array(':title' => $_POST['title']));
       $msg = "Item removed.";
+    }
+  } 
+
+  if (isset($_POST['makeadmin']) && $_POST['makeadmin'] == 'Make Admin') {
+    
+    
+    if (!isset($_POST['username']) || !isset($_POST['userconfirm']) || empty($_POST['username']) || empty($_POST['userconfirm']) ) {
+      $msg = "Please fill in all form fields.";
+    }
+    else if ($_POST['username'] !== $_POST['userconfirm']) {
+      $msg = "Usernames must match.";
+    }
+    else {
+      $stmt = $dbconn->prepare("UPDATE userlogin SET is_admin = 1 WHERE username = :username");
+      $stmt->execute(array(':username' => $_POST['username']));
+      $msg = "Account is now Admin User.";
+    }
+  } 
+
+  if (isset($_POST['removeadmin']) && $_POST['removeadmin'] == 'Remove Admin') {
+    
+    
+    if (!isset($_POST['username']) || !isset($_POST['userconfirm']) || empty($_POST['username']) || empty($_POST['userconfirm']) ) {
+      $msg = "Please fill in all form fields.";
+    }
+    else if ($_POST['username'] !== $_POST['userconfirm']) {
+      $msg = "Usernames must match.";
+    }
+    else {
+      $stmt = $dbconn->prepare("UPDATE userlogin SET is_admin = 0 WHERE username = :username");
+      $stmt->execute(array(':username' => $_POST['username']));
+      $msg = "Account is now User.";
+    }
+  } 
+
+  if (isset($_POST['banuser']) && $_POST['banuser'] == 'Ban') {
+    
+    
+    if (!isset($_POST['username']) || !isset($_POST['userconfirm']) || empty($_POST['username']) || empty($_POST['userconfirm']) ) {
+      $msg = "Please fill in all form fields.";
+    }
+    else if ($_POST['username'] !== $_POST['userconfirm']) {
+      $msg = "Usernames must match.";
+    }
+    else {
+      $stmt = $dbconn->prepare("UPDATE userlogin SET is_banned = 1, is_admin = 0 WHERE username = :username");
+      $stmt->execute(array(':username' => $_POST['username']));
+      $msg = "Account Banned.";
+    }
+  } 
+
+  if (isset($_POST['unbanuser']) && $_POST['unbanuser'] == 'Unban') {
+    
+    
+    if (!isset($_POST['username']) || !isset($_POST['userconfirm']) || empty($_POST['username']) || empty($_POST['userconfirm']) ) {
+      $msg = "Please fill in all form fields.";
+    }
+    else if ($_POST['username'] !== $_POST['userconfirm']) {
+      $msg = "Usernames must match.";
+    }
+    else {
+      $stmt = $dbconn->prepare("UPDATE userlogin SET is_banned = 0 WHERE username = :username");
+      $stmt->execute(array(':username' => $_POST['username']));
+      $msg = "Account Unbanned.";
     }
   } 
 
@@ -108,6 +178,7 @@
 			    <label for="username">Username: </label><input type="text" name="username" />
 			    <label for="pass">Password: </label><input type="password" name="pass" />
 			    <label for="passconfirm">Confirm: </label><input type="password" name="passconfirm" />
+          <input type="checkbox" name="admin" value="Admin">Make Admin
 			    <input type="submit" name="register" value="Register" />
 			  </form>
 		</div>
@@ -138,12 +209,48 @@
 			<h2 class="title">Remove Item</h2>
 			  <form method="post" action="admin.php">
 			    <label for="title">Title: </label><input type="text" name="title" />
-			    <label for="confirmtitle">Confirm: </label><input type="text" name="confirmtitle" />
+			    <label for="titleconfirm">Confirm: </label><input type="text" name="titleconfirm" />
 			    <input type="submit" name="remove_item" value="Remove" />
 			  </form>
-		</div><br>
+		</div>
 
-    <div align="center">
+    <div id="make_admin" align="center">
+      <h2 class="title">Make Admin</h2>
+        <form method="post" action="admin.php">
+          <label for="username">Username: </label><input type="text" name="username" />
+          <label for="userconfirm">Confirm: </label><input type="text" name="userconfirm" />
+          <input type="submit" name="makeadmin" value="Make Admin" />
+        </form>
+    </div>
+
+    <div id="remove_admin" align="center">
+      <h2 class="title">Remove Admin</h2>
+        <form method="post" action="admin.php">
+          <label for="username">Username: </label><input type="text" name="username" />
+          <label for="userconfirm">Confirm: </label><input type="text" name="userconfirm" />
+          <input type="submit" name="removeadmin" value="Remove Admin" />
+        </form>
+    </div>
+
+    <div id="ban_user" align="center">
+      <h2 class="title">Ban User</h2>
+        <form method="post" action="admin.php">
+          <label for="username">Username: </label><input type="text" name="username" />
+          <label for="userconfirm">Confirm: </label><input type="text" name="userconfirm" />
+          <input type="submit" name="banuser" value="Ban" />
+        </form>
+    </div>
+
+    <div id="unban_user" align="center">
+      <h2 class="title">Unban User</h2>
+        <form method="post" action="admin.php">
+          <label for="username">Username: </label><input type="text" name="username" />
+          <label for="userconfirm">Confirm: </label><input type="text" name="userconfirm" />
+          <input type="submit" name="unbanuser" value="Unban" />
+        </form>
+    </div>
+
+    <br><div align="center">
       <form method="post" action="admin.php">
         <input type="submit" name="refresh" value="Refresh" />
     </div>
