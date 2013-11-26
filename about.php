@@ -12,11 +12,11 @@
     <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <div id="all">
-      <div id="navigation">
+    <div id="navigation">
         <div id="mainbar">     
         </div>
       </div>
+    <div id="all">
       <div class="logo">
         <a href="index.php">
           <img src="EntertainMelogo.png" alt="logo" width="400px" height="auto">
