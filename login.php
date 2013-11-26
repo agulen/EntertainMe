@@ -29,67 +29,17 @@ if (isset($_POST['login']) && $_POST['login'] == 'Login') {
     $_SESSION['username'] = $user['username'];
     $_SESSION['is_admin'] = $user['is_admin'];
 
-    if ($user['is_admin']==true) {
-      header('Location: admin.php');
-      exit();
-    }
   }
   else {
     $err = 'Incorrect username or password.';
   }
 }
 
-// Logout
-/*if (isset($_SESSION['username']) && isset($_POST['logout']) && $_POST['logout'] == 'Logout') {
-  // Unset the keys from the superglobal
-  unset($_SESSION['username']);
-  // Destroy the session cookie for this session
-  setcookie(session_name(), '', time() - 72000);
-  // Destroy the session data store
-  session_destroy();
-  $err = 'You have been logged out.';
-}*/
-
 if (isset($_POST['signup']) && $_POST['signup'] == 'Signup') {
   header('Location: signup.php');
   exit();
 }
 
-
 ?>
 
-<!doctype html>
-<html>
-  <head>
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="login.css">
-  </head>
-  <body>
-    <div id="all">
-    <div class="logo">
-      Logo area.
-    </div>
-    <div id="navigation">
-      <div id="mainbar">     
-      </div>
-    </div>
-    <div id="main">
-      <?php if (isset($_SESSION['username'])):
-              header('Location: now.html');
-              exit();
-           ?>
-      <?php else : ?>
-      <h1>Login</h1>
-      <?php if (isset($err)) echo "<p>$err</p>" ?>
-      <form method="post" action="login.php">
-        <label for="username">Username: </label><input type="text" name="username" /></br>
-        <label for="pass">Password: </label><input type="password" name="pass" /></br>
-        
-        <input name="login" type="submit" value="Login" />
-        <input name="signup" type="submit" value="Signup" />
-      </form>
-      <?php endif; ?>
-      </div>
-    </div>
-  </body>
-</html>
+
