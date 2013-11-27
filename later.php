@@ -1,6 +1,7 @@
 <?php 
 	session_start();
 	include 'load.php';
+	include 'additemlater.php';
  ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
@@ -102,8 +103,8 @@
 
 				<div class="additems">
 					<h4>Add more items</h4><br/>
-					<form method="post" action="now.php">
-						<select>
+					<form method="post" action="later.php">
+						<select name="dropdown">
 						  <option value="type">What type of entertainment?</option>
 						  <option value="movie">Movie</option>
 						  <option value="tvshow">TV Show</option>
@@ -113,11 +114,9 @@
 						</select><br/>
             <label for="title">Title </label><input type="text" name="title" /></br>
             <label for="description">Description </label><textarea id="description" name="description"></textarea><br/>
-            <input name="additem" type="button" value="Submit" />
+            <input name="additem" type="submit" value="Submit" />
         	</form>
-        	<?php //if submission accomplished
-        		//echo 'Entertainment added.';
-        	?>
+        	<?php if (isset($addmsg)) echo $addmsg; ?>
 				</div>
 			</div> <!--div for main-->
 
