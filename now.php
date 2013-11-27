@@ -1,6 +1,7 @@
  <?php 
   	 session_start();
   	 require 'connect.php';
+  	 require 'additemnow.php';
   	 include 'load.php';
   	 ?>
 
@@ -105,21 +106,19 @@
 				<div class="additems">
 					<h4>Add more items</h4><br/>
 					<form method="post" action="now.php">
-						<select>
-						  <option value="type">What type of entertainment?</option>
+						<select name="dropdown">
+						  <option value="">What type of entertainment?</option>
 						  <option value="movie">Movie</option>
-						  <option value="tvshow">TV Show</option>
+						  <option value="tv">TV Show</option>
 						  <option value="music">Music</option>
 						  <option value="book">Book</option>
 						  <option value="game">Game</option>
 						</select><br/>
             <label for="title">Title </label><input type="text" name="title" /></br>
             <label for="description">Description </label><textarea id="description" name="description"></textarea><br/>
-            <input name="additem" type="button" value="Submit" />
+            <input type="submit" name="additem" value="Submit" />
         	</form>
-        	<?php //if submission accomplished
-        		//echo 'Entertainment added.';
-        	?>
+        	<?php if (isset($addmsg)) echo $addmsg; ?>
 				</div>
 			</div> <!--div for main-->
 
