@@ -17,7 +17,7 @@ require 'login.php';
         </div>
       </div>
       <div class="logo">
-        <img src="EntertainMelogo.png" alt="logo" width="400px" height="auto" >
+        <img src="http://i.minus.com/iI7WTHovllxD1.png" alt="logo" width="400px" height="auto" >
       </div>
       
       <div id="main">
@@ -27,7 +27,7 @@ require 'login.php';
              ?>
       <?php else : ?>
         <h2>Login</h2>
-        <?php if (isset($err)) echo "<p>$err</p>" ?>
+        <?php if (isset($err)) echo $err."<br/>"; ?>
         <form method="post" action="index.php">
           <label for="username">Username: </label><input type="text" name="username" /></br>
           <label for="pass">Password: </label><input type="password" name="pass" /></br>
