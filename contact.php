@@ -22,16 +22,16 @@
 
         <div class="logo">
           <a href="index.php">
-            <img src="EntertainMelogo.png" alt="logo" width="400px" height="auto">
+            <img src="http://i.minus.com/iI7WTHovllxD1.png" alt="logo" width="400px" height="auto">
           </a>
         </div>
         
         <div id="main">
-          <h2>Contact</h2>
+          <h1>Contact</h1>
             <form action="contact.php" method="post">
-              Your name: <input type="text" name="cf_name" placeholder="Your name"/><br>
-              Your e-mail: <input type="text" name="cf_email" placeholder="Your e-mail"/><br>
-              Message: <textarea name="cf_message" rows="5" cols="25" placeholder="Message"></textarea><br/>
+              <label for="name">Your name: </label><input type="text" name="cf_name" /><br>
+              <label for="email">Your e-mail: </label><input type="text" name="cf_email" /><br>
+              <label for="message">Message: </label><textarea name="cf_message" rows="5" cols="25" /></textarea><br/>
               <input type="submit" value="Send">
               <input type="submit" value="Clear">
             </form>
