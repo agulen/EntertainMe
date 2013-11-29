@@ -66,7 +66,7 @@
   <body>
     <div id="all">
       <div class="logo">
-        <img src="EntertainMelogo.png" alt="logo" width="400px" height="auto">
+        <img src="http://i.minus.com/iI7WTHovllxD1.png" alt="logo" width="400px" height="auto">
       </div>
       <div id="navigation">
         <div id="mainbar">     
