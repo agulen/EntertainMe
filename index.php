@@ -26,7 +26,7 @@ require 'login.php';
                 exit();
              ?>
       <?php else : ?>
-        <h2>Login</h2>
+        <h1>Login</h1>
         <?php if (isset($err)) echo $err."<br/>"; ?>
         <form method="post" action="index.php">
           <label for="username">Username: </label><input type="text" name="username" /></br>
