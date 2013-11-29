@@ -19,7 +19,7 @@
     <div id="all">
       <div class="logo">
         <a href="index.php">
-          <img src="EntertainMelogo.png" alt="logo" width="400px" height="auto">
+          <img src="http://i.minus.com/iI7WTHovllxD1.png" alt="logo" width="400px" height="auto">
         </a>
       </div>
       <div id="main">
