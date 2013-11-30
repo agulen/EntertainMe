@@ -154,6 +154,30 @@
       $msg = "Account Unbanned.";
     }
   } 
+/*
+  if (isset($_POST['test']) && $_POST['test'] == 'Test') {
+
+    if (!isset($_POST['title']) || !isset($_POST['username']) || empty($_POST['title']) || empty($_POST['username'])) {
+      $msg = "Please fill in all form fields.";
+    }
+
+    else {
+    $stmt = $dbconn->prepare("SELECT id FROM entertainment WHERE title = :title");
+    $stmt->execute(array(':title' => $_POST['title']));
+    $res = $stmt->fetch();
+    $id = $res['id'];
+
+    $stmt = $dbconn->prepare("INSERT INTO later (username, entertainment_id) VALUES (:username, :id)");
+    $stmt->execute(array(':username' => $_POST['username'], ':id' => $id));
+
+    $stmt = $dbconn->prepare("DELETE FROM now WHERE username = :username AND entertainment_id = :id");
+    $stmt->execute(array(':username' => $_POST['username'], ':id' => $id));
+
+    $msg = 'It is done.';
+
+    }
+*/
+  }
 
 ?>
 
@@ -254,6 +278,14 @@
       <form method="post" action="admin.php">
         <input type="submit" name="refresh" value="Refresh" />
     </div>
+<!--
+    <br><div align="center">
+      <form method="post" action="admin.php">
+        <label for="title">Title: </label><input type="text" name="title" />
+        <label for="username">Username: </label><input type="text" name="username" />
+        <input type="submit" name="test" value="Test" />
+    </div> -->
+
 
 	</div>
 </body>
