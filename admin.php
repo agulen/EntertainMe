@@ -18,31 +18,41 @@
   
   if (isset($_POST['register']) && $_POST['register'] == 'Register') {
     
-    // @TODO: Check to see if duplicate usernames exist
-    
     if (!isset($_POST['username']) || !isset($_POST['pass']) || !isset($_POST['passconfirm']) || empty($_POST['username']) || empty($_POST['pass']) || empty($_POST['passconfirm'])) {
       $msg = "Please fill in all form fields.";
     }
     else if ($_POST['pass'] !== $_POST['passconfirm']) {
       $msg = "Passwords must match.";
     }
-    else {
-      if (!isset($_POST['admin']) || empty($_POST['admin'])) {
-        $is_admin = 0;
-      }
-      else {
-        $is_admin = $_POST['admin'] == 'Admin';
-      }
-      // Generate random salt
-      $salt = hash('sha256', uniqid(mt_rand(), true));      
+    else {      
+      //Check for duplicate usernames
+      $stmt = $dbconn->prepare("SELECT COUNT(*) FROM userlogin WHERE username=:username");
+      $stmt->execute(array(':username' => $_POST['username']));
+      $result = $stmt->fetch();     
 
-      // Apply salt before hashing
-      $salted = hash('sha256', $salt . $_POST['pass']);
-      
-      // Store the salt with the password, so we can apply it again and check the result
-      $stmt = $dbconn->prepare("INSERT INTO userlogin (username, password, salt, is_admin) VALUES (:username, :pass, :salt, :admin)");
-      $stmt->execute(array(':username' => $_POST['username'], ':pass' => $salted, ':salt' => $salt, ':admin' => $is_admin));
-      $msg = "Account created.";
+      if ($result['COUNT(*)'] > 0) 
+      {
+        $msg = "Username exists already.";
+      }
+      else //New user! Add to database
+      {
+        if (!isset($_POST['admin']) || empty($_POST['admin'])) {
+          $is_admin = 0;
+        }
+        else {
+          $is_admin = $_POST['admin'] == 'Admin';
+        }
+        // Generate random salt
+        $salt = hash('sha256', uniqid(mt_rand(), true));      
+
+        // Apply salt before hashing
+        $salted = hash('sha256', $salt . $_POST['pass']);
+        
+        // Store the salt with the password, so we can apply it again and check the result
+        $stmt = $dbconn->prepare("INSERT INTO userlogin (username, password, salt, is_admin) VALUES (:username, :pass, :salt, :admin)");
+        $stmt->execute(array(':username' => $_POST['username'], ':pass' => $salted, ':salt' => $salt, ':admin' => $is_admin));
+        $msg = "Account created.";
+      }
     }
   }
 
@@ -186,58 +196,58 @@
 
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Entertain.Me - Admin Page</title>
-	<link rel="stylesheet" type="text/css" href="admin.css">
+  <meta charset="utf-8">
+  <title>Entertain.Me - Admin Page</title>
+  <link rel="stylesheet" type="text/css" href="admin.css">
 </head>
 
 <body>
-	<div id="all"><br>
-		<div id="banner" align="center"><h1 class="title">Admin Functions</h1></div>
+  <div id="all"><br>
+    <div id="banner" align="center"><h1 class="title">Admin Functions</h1></div>
 
     <div align="center"><?php if (isset($msg)) echo "<p>$msg</p>" ?></div>
 
-		<div id="add_user" align="center">
-			<h2 class="title">Add New User</h2>
-			  <form method="post" action="admin.php">
-			    <label for="username">Username: </label><input type="text" name="username" />
-			    <label for="pass">Password: </label><input type="password" name="pass" />
-			    <label for="passconfirm">Confirm: </label><input type="password" name="passconfirm" />
+    <div id="add_user" align="center">
+      <h2 class="title">Add New User</h2>
+        <form method="post" action="admin.php">
+          <label for="username">Username: </label><input type="text" name="username" />
+          <label for="pass">Password: </label><input type="password" name="pass" />
+          <label for="passconfirm">Confirm: </label><input type="password" name="passconfirm" />
           <input type="checkbox" name="admin" value="Admin">Make Admin
-			    <input type="submit" name="register" value="Register" />
-			  </form>
-		</div>
+          <input type="submit" name="register" value="Register" />
+        </form>
+    </div>
 
-		<div id="remove_user" align="center">
-			<h2 class="title">Remove User</h2>
-			  <form method="post" action="admin.php">
-			    <label for="username">Username: </label><input type="text" name="username" />
-			    <label for="userconfirm">Confirm: </label><input type="text" name="userconfirm" />
-			    <input type="submit" name="remove" value="Remove" />
-			  </form>
-		</div>
+    <div id="remove_user" align="center">
+      <h2 class="title">Remove User</h2>
+        <form method="post" action="admin.php">
+          <label for="username">Username: </label><input type="text" name="username" />
+          <label for="userconfirm">Confirm: </label><input type="text" name="userconfirm" />
+          <input type="submit" name="remove" value="Remove" />
+        </form>
+    </div>
 
-		<div id="add_item" align="center">
-			<h2 class="title">Add Item</h2>
-			  <form method="post" action="admin.php">
-			    <label for="title">Title: </label><input type="text" name="title" />
-			    <input type="radio" name="item_type" value="Book" />Book
-			    <input type="radio" name="item_type" value="Movie" />Movie
-			    <input type="radio" name="item_type" value="Song" />Song
+    <div id="add_item" align="center">
+      <h2 class="title">Add Item</h2>
+        <form method="post" action="admin.php">
+          <label for="title">Title: </label><input type="text" name="title" />
+          <input type="radio" name="item_type" value="Book" />Book
+          <input type="radio" name="item_type" value="Movie" />Movie
+          <input type="radio" name="item_type" value="Song" />Song
           <input type="radio" name="item_type" value="TV" />TV
           <input type="radio" name="item_type" value="Videogame" />Videogame
-			    <input type="submit" name="add_item" value="Add" />
-			  </form>
-		</div>
+          <input type="submit" name="add_item" value="Add" />
+        </form>
+    </div>
 
-		<div id="remove_item" align="center">
-			<h2 class="title">Remove Item</h2>
-			  <form method="post" action="admin.php">
-			    <label for="title">Title: </label><input type="text" name="title" />
-			    <label for="titleconfirm">Confirm: </label><input type="text" name="titleconfirm" />
-			    <input type="submit" name="remove_item" value="Remove" />
-			  </form>
-		</div>
+    <div id="remove_item" align="center">
+      <h2 class="title">Remove Item</h2>
+        <form method="post" action="admin.php">
+          <label for="title">Title: </label><input type="text" name="title" />
+          <label for="titleconfirm">Confirm: </label><input type="text" name="titleconfirm" />
+          <input type="submit" name="remove_item" value="Remove" />
+        </form>
+    </div>
 
     <div id="make_admin" align="center">
       <h2 class="title">Make Admin</h2>
@@ -288,5 +298,5 @@
     </div> -->
 
 
-	</div>
+  </div>
 </body>
