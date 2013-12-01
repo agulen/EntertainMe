@@ -18,6 +18,8 @@
     exit();
   }
 
+  //print a message for duplicate usernames 
+
 
   if (isset($_POST['signup']) && $_POST['signup'] == 'Signup') {
     
@@ -28,8 +30,7 @@
     else if ($_POST['pass'] !== $_POST['passconfirm']) {
       $msg = "Passwords must match.";
     }
-    //print message for duplicate usernames
-    //else if ($_POST['username'] == )
+    
     else {
       // Generate random salt
       $salt = hash('sha256', uniqid(mt_rand(), true));      
