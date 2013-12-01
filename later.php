@@ -1,5 +1,6 @@
 <?php 
 	session_start();
+	require 'connect.php';
 	include 'load.php';
 	include 'additemlater.php';
  ?>
@@ -54,7 +55,7 @@
   		</div>
 			<div id="main">
 				<div id="pageDescription">
-					<h3>Later</h3>
+					<h2>Later</h2>
 		  		<p>Description of the later page. Design this page.</p>
 		  	</div>
 		  	<h4>Your Lists</h4><br/>
