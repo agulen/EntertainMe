@@ -1,10 +1,4 @@
-
 <?php
-
-
-//select the id
-
-
 
  if (isset($_POST['additem']) && $_POST['additem'] == 'Submit') {
     
@@ -16,28 +10,26 @@
       $addmsg = "Please select a type of entertainment.";
     }
     else {
-      // Generate random salt
+      //insert items into entertainment table
       $stmt = $conn->prepare("INSERT INTO entertainment (title, description, type) 
                           VALUES (:title, :descr, :type)");
       $stmt->execute(array(':title' => $_POST['title'],
                            ':descr' => $_POST['description'], 
                            ':type' => $_POST['dropdown']));
-      $insertsql = "INSERT INTO later (entertainment_id)
-      					SELECT MAX(id) FROM entertainment";
-      $stmt2 = $conn->query($insertsql);
 
-      $updatesql = $conn->prepare("UPDATE later SET username=:user WHERE entertainment_id=MAX(entertainment_id)");
-      $updatesql->execute(array(':user' => $_SESSION['username']));
+      //grab id from entertainment table
+      $stmt = $conn->prepare("SELECT id FROM entertainment WHERE title = :title");
+      $stmt->execute(array(':title' => $_POST['title']));
+      $res = $stmt->fetch();
+      $id = $res['id'];
+
+      //insert this id and the session username into the now table
+      $stmt = $conn->prepare("INSERT INTO later (username, entertainment_id) VALUES (:username, :id)");
+      $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
       
       $addmsg = "Item added.";
     }
   
   }
-
-  //NOW and LATER are made up of foreign keys....preventing updates and inserts
-
-
-
-
 
 ?>
