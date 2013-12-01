@@ -1,5 +1,4 @@
 <?php
-  //probably do not need this, because we should already be connected via a session ?
   session_start();
   
   // Connect to the database
@@ -93,17 +92,19 @@
 
 
 echo '<form method="post" action="move.php">
-	<label for="title">'.$row['title'].'</label><input type="text" name="title" class="nodisplay" value="'.$row['title'].'" readonly>;
-	<input type="submit" name="nowtolater" value="nowtolater" class="icon" />
-	<input type="submit" name="nowtodone" value="nowtodone" class="icon" />
-	<input type="submit" name="latertodone" value="latertodone" class="icon" />
-	<input type="submit" name="remove" value="remove" class="icon" />
+        <label for="title">'.$row['title'].'</label><input type="text" name="title" class="nodisplay" value="'.$row['title'].'" readonly>;
+        <input type="submit" name="nowtolater" value="nowtolater" class="icon" />
+        <input type="submit" name="nowtodone" value="nowtodone" class="icon" />
+        <input type="submit" name="latertodone" value="latertodone" class="icon" />
+        <input type="submit" name="remove" value="remove" class="icon" />
 </form>';
 
 ?>
 
-CSS to Add:
 
-.nodisplay {
-	display: none;
-}
+
+<!--Note:
+  Jed: I put the CSS into the mainpages.css. But it is still appearing a little weird, with a semicolon.
+  Inside load.php, need to customize the forms to the function so it will load accordingly.
+  I figured out that inside the load.php function, an if statement could be made to say "if $timePeriod = now, load this form into the statement." and so on and so forth for each time period. 
+  Sorry if you already knew this, I was just figuring it out and thought of it easiest this way!-->
