@@ -1,9 +1,9 @@
- <?php 
-  	 session_start();
-  	 require 'connect.php';
-  	 require 'additemnow.php';
-  	 include 'load.php';
-  	 ?>
+<?php 
+	session_start();
+	require 'connect.php';
+	include 'additemnow.php';
+	include 'load.php';
+ ?>
 
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
@@ -56,7 +56,7 @@
   		</div>
 			<div id="main">
 				<div id="pageDescription">
-					<h3>Now</h2>
+					<h2>Now</h2>
 		  		<p>Description of the now page. Design this page.</p>
 		  	</div>
 		  	<h4>Your Lists</h4><br/>
@@ -120,6 +120,7 @@
         	</form>
         	<?php if (isset($addmsg)) echo $addmsg; ?>
 				</div>
+
 			</div> <!--div for main-->
 
 	  	<div id="footer">
