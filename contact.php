@@ -10,7 +10,7 @@ if (isset($_POST['send']) && $_POST['send'] == 'Send') {
     $field_email = $_POST['cf_email'];
     $field_message = $_POST['cf_message'];
 
-    $mail_to = 'contact@testmail.com';
+    $mail_to = 'gulenak@gmail.com';
     $subject = 'Message from a site visitor '.$field_name;
 
     $body_message = 'From: '.$field_name."\n";
@@ -26,7 +26,7 @@ if (isset($_POST['send']) && $_POST['send'] == 'Send') {
       $msg = 'Thank you for the message. We will contact you shortly.';
     }
     else {
-      $msg = 'Message failed. Please, send an email to help@testmail.com';
+      $msg = 'Message failed. Please, send an email to gulenak@gmail.com';
     }
   }
 }
