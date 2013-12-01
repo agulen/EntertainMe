@@ -141,7 +141,11 @@ color:#09C;
 	outline: none; 
 }
 
-
+/*---------------------------------*/
+/*List form styling*/
+.nodisplay {
+        display: none;
+}
 
 /*---------------------------------------------------*/
 /*NAV BAR STYLING*/
