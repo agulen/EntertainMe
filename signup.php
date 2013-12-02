@@ -1,18 +1,11 @@
 <?php
   session_start();
   
-  // Connect to the database
-  try {
-    $dbname = 'entertainme';
-    $user = 'root';
-    $pass = '';
-    $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
-  }
-  catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-  }
-  
-
+  //connect to the database
+  require 'connect.php';
+  //Use the connection from connect.php
+  $dbconn = $conn;
+ 
   if (isset($_POST['quit']) && $_POST['quit']=='Cancel') {
     header('Location: index.php');
     exit();
