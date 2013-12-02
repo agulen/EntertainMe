@@ -32,6 +32,7 @@ img {
 
 #main {
 	margin: 0 auto;
+	width: 900px;
 }
 
 .logo {
@@ -46,16 +47,18 @@ img {
 }
 
 #main h4 {
-	float: left;
-	margin-left: 250px;
-	padding-right: 10px;
+	font-size: 20px;
+}
+
+#main h5 {
+	font-size: 20px;
 }
 
 .about_list {
     text-align: left;
     padding: 0 auto;
-    margin-left: 400px;
-    margin-right: 350px;
+    margin-left: 200px;
+    margin-right: 200px;
 }
 
 #pageDescription {
@@ -63,15 +66,17 @@ img {
 	text-align: center;
 }
 
+#add {
+	float: right;
+}
+
 .additems {
 	float: right;
 	font-family: 'Average Sans', sans-serif;
-	margin-right: 200px;
 	margin-bottom: 100px;
 }
 
 .additems form {
-	margin-top: 20px;
 	position:relative;
 	font-family: 'Average Sans', sans-serif;
 	text-align: left;
@@ -243,6 +248,10 @@ color:#09C;
 /*PERSONAL ACCORDION STYLING*/
 
 
+#lists {
+	float: left;
+}
+
 .icons {
 	font-size: 20px;
 	float: right;
@@ -252,12 +261,11 @@ color:#09C;
 #accordion {
 	width: 400px;
 	float: left;
-	padding: 20px;
-	margin-left: 200px;
+	padding-top: 20px;
 	margin-bottom: 100px;
 	font-family: 'Average Sans', sans-serif;
 	text-align: left;
-	font-size: 14px;
+	font-size: 18px;
 }
 
 #accordion .ui-accordion-content { 
