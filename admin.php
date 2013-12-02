@@ -1,16 +1,6 @@
 <?php
   session_start();
-  
-  // Connect to the database
-  try {
-    $dbname = 'entertainme';
-    $user = 'root';
-    $pass = '';
-    $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
-  }
-  catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-  }
+  require 'connect.php';
 
   if (isset($_POST['refresh']) && $_POST['refresh'] == 'Refresh') {
     $msg = "";
@@ -26,7 +16,7 @@
     }
     else {      
       //Check for duplicate usernames
-      $stmt = $dbconn->prepare("SELECT COUNT(*) FROM userlogin WHERE username=:username");
+      $stmt = $conn->prepare("SELECT COUNT(*) FROM userlogin WHERE username=:username");
       $stmt->execute(array(':username' => $_POST['username']));
       $result = $stmt->fetch();     
 
@@ -49,7 +39,7 @@
         $salted = hash('sha256', $salt . $_POST['pass']);
         
         // Store the salt with the password, so we can apply it again and check the result
-        $stmt = $dbconn->prepare("INSERT INTO userlogin (username, password, salt, is_admin) VALUES (:username, :pass, :salt, :admin)");
+        $stmt = $conn->prepare("INSERT INTO userlogin (username, password, salt, is_admin) VALUES (:username, :pass, :salt, :admin)");
         $stmt->execute(array(':username' => $_POST['username'], ':pass' => $salted, ':salt' => $salt, ':admin' => $is_admin));
         $msg = "Account created.";
       }
@@ -66,16 +56,16 @@
       $msg = "Usernames must match.";
     }
     else {
-      $stmt = $dbconn->prepare("DELETE FROM now WHERE username = :username");
+      $stmt = $conn->prepare("DELETE FROM now WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
 
-      $stmt = $dbconn->prepare("DELETE FROM later WHERE username = :username");
+      $stmt = $conn->prepare("DELETE FROM later WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
 
-      $stmt = $dbconn->prepare("DELETE FROM done WHERE username = :username");
+      $stmt = $conn->prepare("DELETE FROM done WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
 
-      $stmt = $dbconn->prepare("DELETE FROM userlogin WHERE username = :username");
+      $stmt = $conn->prepare("DELETE FROM userlogin WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
       $msg = "Account removed.";
     }
@@ -88,7 +78,7 @@
       $msg = "Please fill in all form fields.";
     }
     else {
-      $stmt = $dbconn->prepare("INSERT INTO entertainment (title, type) VALUES (:title, :type)");
+      $stmt = $conn->prepare("INSERT INTO entertainment (title, type) VALUES (:title, :type)");
       $stmt->execute(array(':title' => $_POST['title'], ':type' => $_POST['item_type']));
       $msg = "Item Added.";
     }
@@ -104,7 +94,7 @@
       $msg = "Titles must match.";
     }
     else {
-      $stmt = $dbconn->prepare("DELETE FROM entertainment WHERE title = :title");
+      $stmt = $conn->prepare("DELETE FROM entertainment WHERE title = :title");
       $stmt->execute(array(':title' => $_POST['title']));
       $msg = "Item removed.";
     }
@@ -120,7 +110,7 @@
       $msg = "Usernames must match.";
     }
     else {
-      $stmt = $dbconn->prepare("UPDATE userlogin SET is_admin = 1 WHERE username = :username");
+      $stmt = $conn->prepare("UPDATE userlogin SET is_admin = 1 WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
       $msg = "Account is now Admin User.";
     }
@@ -136,7 +126,7 @@
       $msg = "Usernames must match.";
     }
     else {
-      $stmt = $dbconn->prepare("UPDATE userlogin SET is_admin = 0 WHERE username = :username");
+      $stmt = $conn->prepare("UPDATE userlogin SET is_admin = 0 WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
       $msg = "Account is now User.";
     }
@@ -152,7 +142,7 @@
       $msg = "Usernames must match.";
     }
     else {
-      $stmt = $dbconn->prepare("UPDATE userlogin SET is_banned = 1, is_admin = 0 WHERE username = :username");
+      $stmt = $conn->prepare("UPDATE userlogin SET is_banned = 1, is_admin = 0 WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
       $msg = "Account Banned.";
     }
@@ -168,7 +158,7 @@
       $msg = "Usernames must match.";
     }
     else {
-      $stmt = $dbconn->prepare("UPDATE userlogin SET is_banned = 0 WHERE username = :username");
+      $stmt = $conn->prepare("UPDATE userlogin SET is_banned = 0 WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
       $msg = "Account Unbanned.";
     }
@@ -181,15 +171,15 @@
     }
 
     else {
-    $stmt = $dbconn->prepare("SELECT id FROM entertainment WHERE title = :title");
+    $stmt = $conn->prepare("SELECT id FROM entertainment WHERE title = :title");
     $stmt->execute(array(':title' => $_POST['title']));
     $res = $stmt->fetch();
     $id = $res['id'];
 
-    $stmt = $dbconn->prepare("INSERT INTO later (username, entertainment_id) VALUES (:username, :id)");
+    $stmt = $conn->prepare("INSERT INTO later (username, entertainment_id) VALUES (:username, :id)");
     $stmt->execute(array(':username' => $_POST['username'], ':id' => $id));
 
-    $stmt = $dbconn->prepare("DELETE FROM now WHERE username = :username AND entertainment_id = :id");
+    $stmt = $conn->prepare("DELETE FROM now WHERE username = :username AND entertainment_id = :id");
     $stmt->execute(array(':username' => $_POST['username'], ':id' => $id));
 
     $msg = 'It is done.';
