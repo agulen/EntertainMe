@@ -63,6 +63,7 @@ img {
 }
 
 .additems form {
+	margin-top: 20px;
 	margin:auto;
 	position:relative;
 	font-family: 'Average Sans', sans-serif;
@@ -81,17 +82,108 @@ img {
 }
 
 .additems input,select {
-	width:300px;
 	display: block;
-	border: 1px solid #999;
-	height: 25px;
+	background: linear-gradient(to bottom, #f7f7f8 0%,#ffffff 100%);
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset, 0 -1px 0 rgba(0,0,0,0.05) inset;
+    transition: all 0.2s linear;
+    font-family: 'Average Sans', sans-serif;
+    font-size: 13px;
+    color: #222222;
+    position: relative;
+    height: 25px;
+    width: 300px;
+    padding-left: 5px;
+    
+    &::-webkit-input-placeholder {
+       color: #999999;
+    }
+    
+    &:-moz-placeholder {
+       color: #999999;
+    }
+        
+    &:focus{
+        box-shadow: 0 1px 0 #2392F3 inset, 0 -1px 0 #2392F3 inset, 1px 0 0 #2392F3 inset, -1px 0 0 #2392F3 inset, 0 0 4px rgba(35,146,243,0.5);
+        outline: none;
+        background: #FFF;
+    }
 }
 
 .additems textarea {
 	width: 300px;
 	height: 75px;
 	display: block;
+	background: linear-gradient(to bottom, #f7f7f8 0%,#ffffff 100%);
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset, 0 -1px 0 rgba(0,0,0,0.05) inset;
+    transition: all 0.2s linear;
+    font-family: 'Average Sans', sans-serif;
+    font-size: 13px;
+    color: #222222;
+    position: relative;
+    padding-left: 5px;
+    
+    &::-webkit-input-placeholder {
+       color: #999999;
+    }
+    
+    &:-moz-placeholder {
+       color: #999999;
+    }
+        
+    &:focus{
+        box-shadow: 0 1px 0 #2392F3 inset, 0 -1px 0 #2392F3 inset, 1px 0 0 #2392F3 inset, -1px 0 0 #2392F3 inset, 0 0 4px rgba(35,146,243,0.5);
+        outline: none;
+        background: #FFF;
+    }
 }
+
+.additems input[type=submit] {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 14px/100% 'Average Sans', sans-serif;
+    padding: .25em 1em .4em;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    -webkit-border-radius: .5em; 
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+
+    color: #fef4e9;
+    border: solid 1px #da7c0c;
+    background: #f78d1d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+    background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+}
+
+.additems input[type=submit]:hover {
+    text-decoration: none;
+
+    background: #f47c20;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+    background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+}
+
+.additems input[type=submit]:active {
+    position: relative;
+    top: 1px;
+
+    color: #fcd3a5;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+    background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
+}
+
 /*   input button not working with styling to change size? help on this
 .additems input.button {
 	width:100px;
