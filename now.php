@@ -57,7 +57,7 @@
   		</div>
 			<div id="main">
 				<div id="pageDescription">
-					<h2>Now</h2>
+					<h1>Now</h1>
 		  		<p class="about_list">Whether a sweet new band or a awesome new video game, friends and acquaintances are always making great suggestions of thing you must see or do right away. Simply add the media to your &rsquo;Now&lsquo; list as a reminder to go check it out soon.</p>
 		  	</div>
 		  	<h4>Your Lists</h4><br/>
