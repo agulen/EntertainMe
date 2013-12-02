@@ -102,9 +102,8 @@
 							 ?>
 					  </div>
 				</div>
-
+				<h4>Add more items</h4><br/>
 				<div class="additems">
-					<h4>Add more items</h4><br/>
 					<form method="post" action="later.php">
 						<select name="dropdown">
 						  <option value="type">What type of entertainment?</option>
