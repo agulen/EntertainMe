@@ -66,6 +66,15 @@
       $msg = "Usernames must match.";
     }
     else {
+      $stmt = $dbconn->prepare("DELETE FROM now WHERE username = :username");
+      $stmt->execute(array(':username' => $_POST['username']));
+
+      $stmt = $dbconn->prepare("DELETE FROM later WHERE username = :username");
+      $stmt->execute(array(':username' => $_POST['username']));
+
+      $stmt = $dbconn->prepare("DELETE FROM done WHERE username = :username");
+      $stmt->execute(array(':username' => $_POST['username']));
+
       $stmt = $dbconn->prepare("DELETE FROM userlogin WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
       $msg = "Account removed.";
