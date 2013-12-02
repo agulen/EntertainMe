@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require 'connect.php';
+  require 'connect.php';  
 
   if (isset($_POST['refresh']) && $_POST['refresh'] == 'Refresh') {
     $msg = "";
@@ -47,8 +47,6 @@
   }
 
   if (isset($_POST['remove']) && $_POST['remove'] == 'Remove') {
-    
-    
     if (!isset($_POST['username']) || !isset($_POST['userconfirm']) || empty($_POST['username']) || empty($_POST['userconfirm']) ) {
       $msg = "Please fill in all form fields.";
     }
@@ -68,6 +66,14 @@
       $stmt = $conn->prepare("DELETE FROM userlogin WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
       $msg = "Account removed.";
+
+      //If you deleted your own account...
+      if($_POST['username'] == $_SESSION['username'])
+      {
+        unset($_SESSION['username']);
+        unset($_SESSION['is_admin']);
+        header('Location: index.php');
+      }
     }
   } 
 
@@ -128,6 +134,13 @@
       $stmt = $conn->prepare("UPDATE userlogin SET is_admin = 0 WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
       $msg = "Account is no longer an Admin.";
+
+      //If you specify your own account...
+      if($_POST['username'] == $_SESSION['username'])
+      {        
+        $_SESSION['is_admin'] = false;
+        header('Location: index.php');
+      }
     }
   } 
 ?>
