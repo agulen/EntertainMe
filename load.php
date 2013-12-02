@@ -31,16 +31,17 @@
         	if ($timePeriod == 'now') {
             echo '<input type="submit" name="nowtolater" value="nowtolater" class="icon" />
                   <input type="submit" name="nowtodone" value="nowtodone" class="icon" />
-                  <input type="submit" name="remove" value="remove" class="icon" />';
+                  <input type="image" src="deleteButton.png" name="remove" value="now" class="icon" />';
         }
           if ($timePeriod == 'later') {
             echo '<input type="submit" name="latertonow" value="latertonow" class="icon" />
                   <input type="submit" name="latertodone" value="latertodone" class="icon" />
-                  <input type="submit" name="remove" value="remove" class="icon" />';
+                  <input type="image" src="deleteButton.png" name="remove" value="later" class="icon" />';
           }
           if ($timePeriod == 'done') {
             echo '<input type="submit" name="donetonow" value="donetonow" class="icon" />
-                  <input type="submit" name="donetolater" value="donetolater" class="icon" />';
+                  <input type="submit" name="donetolater" value="donetolater" class="icon" />;
+                  <input type="image" src="deleteButton.png" name="remove" value="done" class="icon" />';
           }
           echo '</form>';
           /*printf("Title: %s <span class='icons'>
