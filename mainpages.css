@@ -46,7 +46,7 @@ img {
 
 #main h4 {
 	float: left;
-	margin-left: 180px;
+	margin-left: 250px;
 	padding-right: 10px;
 }
 
@@ -58,7 +58,7 @@ img {
 .additems {
 	float: right;
 	font-family: 'Average Sans', sans-serif;
-	margin-right: 150px;
+	margin-right: 200px;
 	margin-bottom: 100px;
 }
 
@@ -248,7 +248,7 @@ color:#09C;
 	width: 400px;
 	float: left;
 	padding: 20px;
-	margin-left: 150px;
+	margin-left: 200px;
 	margin-bottom: 100px;
 	font-family: 'Average Sans', sans-serif;
 	text-align: left;
