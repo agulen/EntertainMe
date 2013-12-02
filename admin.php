@@ -132,7 +132,7 @@
       $msg = "Account is now User.";
     }
   } 
-
+/*
   if (isset($_POST['banuser']) && $_POST['banuser'] == 'Ban') {
     
     
@@ -163,7 +163,7 @@
       $stmt->execute(array(':username' => $_POST['username']));
       $msg = "Account Unbanned.";
     }
-  } 
+  } */
 /*
   if (isset($_POST['test']) && $_POST['test'] == 'Test') {
 
@@ -266,7 +266,7 @@
           <input type="submit" name="removeadmin" value="Remove Admin" />
         </form>
     </div>
-
+<!--
     <div id="ban_user" align="center">
       <h2 class="title">Ban User</h2>
         <form method="post" action="admin.php">
@@ -284,7 +284,7 @@
           <input type="submit" name="unbanuser" value="Unban" />
         </form>
     </div>
-
+-->
     <br><div align="center">
       <form method="post" action="admin.php">
         <input type="submit" name="refresh" value="Refresh" />
