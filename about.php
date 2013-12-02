@@ -1,7 +1,4 @@
-<?php
-
-
-?>
+<?php ?>
 
 
 <!doctype html>
@@ -34,7 +31,16 @@
           <p>Life can be hectic. You don't always have time to read this month's bestseller or watch the hottest new film, but you don't want to forget about it. Simply add it to your 'Later' list to enjoy when life gives you a break. Drinks with tiny umbrellas optional.</p>
           <p>You know that feeling. The one where someone is talking about a book they just finished, and it sounds super familiar. Did you read it? Or did you just hear someone else talk about it? Keep track of it all, simply. Once you've finished that enthralling book or epic movie, simply move it to your 'Done' list where it will serve as a reminder so you never forget!</p>
         </div>
-      </div>
+        <div id="whoweare">
+          <h1>Who We Are</h1>
+          <p>EntertainMe is composed of a team of five members who are current RPI students in Web System Development. Each has had their unique role in the completion of the launch of EntertainMe.</p>
+          Jed Kundl was ahead of creating administrative roles and functions. He also created the first EntertainMe logos.<br/>
+          Holly Loomer created the website architecture and skeletons, as well as coded for manipulating data from the database onto the front of our application.<br/>
+          Sakawkarn Piyawitwanich styled the website and helped out with manipulating data from the database to the front of the application as well.<br/>
+          Andrew Wright created the presentation for our application launch and helped create the database schema.<br/>
+          Altan Gulen helped create the database schema with Andrew, manipulated data from the database to the front of the application, and helped set up our demonstration for the launch of EntertainMe.<br/>
+          <p>As a team, we have developed EntertainMe, an application we are proud to present to the media-crazed and organizing-gurus.</p>
+        </div>
       <div id="footer">
         <li><a href="about.php">About</a></li>
         <li><a href="contact.php">Contact</a></li>
