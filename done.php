@@ -1,8 +1,9 @@
-<?php session_start();
+<?php 
+	session_start();
 	include 'load.php';
-	 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
+?>
+
+<!DOCTYPE html>
 <html>
 	<head>
   	<title>EntertainMe - Done</title>
@@ -16,13 +17,13 @@
 			<div id="mainbar">
 				<ul>
 					<li class="#">
-					<a href="now.php">Now</a>
+						<a href="now.php">Now</a>
 					</li>
 					<li class="#">
-					<a href="later.php">Later</a>
+						<a href="later.php">Later</a>
 					</li>
 					<li class="current">
-					<a href="done.php">Done</a>
+						<a href="done.php">Done</a>
 					</li>
 					<!-- Drop Down menu Items -->  
 					<li class="dropdown">
@@ -31,15 +32,15 @@
 				     <a href="#" onClick="return false;"><?php echo htmlentities($_SESSION['username']); ?>
 			     	&#8595;</a>
 				    </dt>
-					 <dd>
-						<ul class="mainMenuSub">
-						 <?php if ($_SESSION['is_admin']==true) : ?>
-						 <li><a href="admin.php">Admin Settings</a></li>
-						 <li><div class="mid-line"></div></li>
-						 <?php endif; ?>
-						 <li><a href="logout.php">Logout</a></li>
-						</ul>
-					 </dd>
+					 	<dd>
+							<ul class="mainMenuSub">
+							 <?php if ($_SESSION['is_admin']==true) : ?>
+							 <li><a href="admin.php">Admin Settings</a></li>
+							 <li><div class="mid-line"></div></li>
+							 <?php endif; ?>
+							 <li><a href="logout.php">Logout</a></li>
+							</ul>
+					 	</dd>
 					 </dl>
 					</li>
 				</ul>

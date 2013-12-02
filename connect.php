@@ -9,7 +9,8 @@ $config = array(
 try { 
 	$conn = new PDO('mysql:host=localhost;dbname=entertainme',
 		$config['DB_USERNAME'],$config['DB_PASSWORD']);
-}	catch (PDOException $e) {
+	}	
+	catch (PDOException $e) {
 		echo 'ERROR: ' . $e->getMessage();
 	}
 

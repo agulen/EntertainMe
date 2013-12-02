@@ -14,20 +14,21 @@ body {
 	font-family: 'Average Sans', sans-serif;
 	padding: 0;
 	background-color: #45CEEF;
-    -webkit-animation: pulse 40s infinite alternate;
-}
-
-@-webkit-keyframes pulse {
-    0% {background-color: #45CEEF;} 
-    5% {background-color: #FFF5A5;} 
-    50% {background-color: #FFD4DA;} 
-    75% {background-color: #99D2E4;} 
-    100% {background-color: #D8CAB4;}
+  -webkit-animation: pulse 40s infinite alternate;
 }
 
 img {
-    width: 15%;
-    height: 15%;
+  width: 15%;
+  height: 15%;
+}
+
+/*Pulsing background*/
+@-webkit-keyframes pulse {
+  0% {background-color: #45CEEF;} 
+  5% {background-color: #FFF5A5;} 
+  50% {background-color: #FFD4DA;} 
+  75% {background-color: #99D2E4;} 
+  100% {background-color: #D8CAB4;}
 }
 
 #main {
@@ -35,15 +36,9 @@ img {
 	width: 900px;
 }
 
-.logo {
-	margin-left: 10px;
-	margin-top: 40px;
-	text-align: left;
-}
-
 #main h1 {
-    margin-bottom: 20px;
-    font-size: 40px;
+  margin-bottom: 20px;
+  font-size: 40px;
 }
 
 #main h4 {
@@ -54,11 +49,21 @@ img {
 	font-size: 20px;
 }
 
+.logo {
+	margin-left: 10px;
+	margin-top: 40px;
+	text-align: left;
+}
+
+.icon {
+	margin-left: 5px;
+}
+
 .about_list {
-    text-align: center;
-    padding: 0 auto;
-    margin-left: 200px;
-    margin-right: 200px;
+  text-align: center;
+  padding: 0 auto;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 #pageDescription {
@@ -70,6 +75,8 @@ img {
 	float: right;
 }
 
+/*---------------------------------------------------*/
+/*ADD ITEMS CONTROL*/
 .additems {
 	float: right;
 	font-family: 'Average Sans', sans-serif;
@@ -96,166 +103,150 @@ img {
 .additems input,select {
 	display: block;
 	background: linear-gradient(to bottom, #f7f7f8 0%,#ffffff 100%);
-    border-radius: 3px;
-    border: none;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset, 0 -1px 0 rgba(0,0,0,0.05) inset;
-    transition: all 0.2s linear;
-    font-family: 'Average Sans', sans-serif;
-    font-size: 13px;
-    color: #222222;
-    position: relative;
-    height: 25px;
-    width: 300px;
-    padding-left: 5px;
-    
-    &::-webkit-input-placeholder {
-       color: #999999;
-    }
-    
-    &:-moz-placeholder {
-       color: #999999;
-    }
-        
-    &:focus{
-        box-shadow: 0 1px 0 #2392F3 inset, 0 -1px 0 #2392F3 inset, 1px 0 0 #2392F3 inset, -1px 0 0 #2392F3 inset, 0 0 4px rgba(35,146,243,0.5);
-        outline: none;
-        background: #FFF;
-    }
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset, 0 -1px 0 rgba(0,0,0,0.05) inset;
+  transition: all 0.2s linear;
+  font-family: 'Average Sans', sans-serif;
+  font-size: 13px;
+  color: #222222;
+  position: relative;
+  height: 25px;
+  width: 300px;
+  padding-left: 5px;
+  
+  &::-webkit-input-placeholder {
+     color: #999999;
+  }
+  
+  &:-moz-placeholder {
+     color: #999999;
+  }
+      
+  &:focus{
+      box-shadow: 0 1px 0 #2392F3 inset, 0 -1px 0 #2392F3 inset, 1px 0 0 #2392F3 inset, -1px 0 0 #2392F3 inset, 0 0 4px rgba(35,146,243,0.5);
+      outline: none;
+      background: #FFF;
+  }
 }
 .additems textarea {
 	width: 300px;
 	height: 75px;
 	display: block;
 	background: linear-gradient(to bottom, #f7f7f8 0%,#ffffff 100%);
-    border-radius: 3px;
-    border: none;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset, 0 -1px 0 rgba(0,0,0,0.05) inset;
-    transition: all 0.2s linear;
-    font-family: 'Average Sans', sans-serif;
-    font-size: 13px;
-    color: #222222;
-    position: relative;
-    padding-left: 5px;
-    
-    &::-webkit-input-placeholder {
-       color: #999999;
-    }
-    
-    &:-moz-placeholder {
-       color: #999999;
-    }
-        
-    &:focus{
-        box-shadow: 0 1px 0 #2392F3 inset, 0 -1px 0 #2392F3 inset, 1px 0 0 #2392F3 inset, -1px 0 0 #2392F3 inset, 0 0 4px rgba(35,146,243,0.5);
-        outline: none;
-        background: #FFF;
-    }
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset, 0 -1px 0 rgba(0,0,0,0.05) inset;
+  transition: all 0.2s linear;
+  font-family: 'Average Sans', sans-serif;
+  font-size: 13px;
+  color: #222222;
+  position: relative;
+  padding-left: 5px;
+  
+  &::-webkit-input-placeholder {
+     color: #999999;
+  }
+  
+  &:-moz-placeholder {
+     color: #999999;
+  }
+      
+  &:focus{
+      box-shadow: 0 1px 0 #2392F3 inset, 0 -1px 0 #2392F3 inset, 1px 0 0 #2392F3 inset, -1px 0 0 #2392F3 inset, 0 0 4px rgba(35,146,243,0.5);
+      outline: none;
+      background: #FFF;
+  }
 }
 
 .additems input[type=submit] {
-    display: inline-block;
-    outline: none;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    font: 14px/100% 'Average Sans', sans-serif;
-    padding: .25em 1em .4em;
-    text-shadow: 0 1px 1px rgba(0,0,0,.3);
-    -webkit-border-radius: .5em; 
-    -moz-border-radius: .5em;
-    border-radius: .5em;
-    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font: 14px/100% 'Average Sans', sans-serif;
+  padding: .25em 1em .4em;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  -webkit-border-radius: .5em; 
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
 
-    color: #fef4e9;
-    border: solid 1px #da7c0c;
-    background: #f78d1d;
-    background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
-    background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+  color: #fef4e9;
+  border: solid 1px #da7c0c;
+  background: #f78d1d;
+  background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+  background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
 }
 
 .additems input[type=submit]:hover {
-    text-decoration: none;
-
-    background: #f47c20;
-    background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
-    background: -moz-linear-gradient(top,  #f88e11,  #f06015);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+  text-decoration: none;
+  background: #f47c20;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+  background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
 }
 
 .additems input[type=submit]:active {
-    position: relative;
-    top: 1px;
+  position: relative;
+  top: 1px;
+  color: #fcd3a5;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+  background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
+}
 
-    color: #fcd3a5;
-    background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
-    background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
-}
-/*   input button not working with styling to change size? help on this
-.additems input.button {
-	width:100px;
-}
-.additems input.button:hover {
-	background:#fff;
-color:#09C;
-}*/
+/*---------------------------------------------------*/
+/*FOOTER STYLING*/
 
 #footer {
-        position: fixed;
-           bottom: 0;
-           width: 100%;
-           height: 32px;
-           background:#2D2D2D;
+  position: fixed;
+     bottom: 0;
+     width: 100%;
+     height: 32px;
+     background:#2D2D2D;
 
-           line-height:1.28;
-        margin:0;
-        padding:0;
-        text-align:left;
-        direction:ltr;
-        unicode-bidi:embed;
+     line-height:1.28;
+  margin:0;
+  padding:0;
+  text-align:left;
+  direction:ltr;
+  unicode-bidi:embed;
 }
 
 #footer a {
-        text-decoration:none;
-        padding:6px 8px 7px;
-        color:white;
-        outline:none;
-        display:block;
+	text-decoration:none;
+	padding:6px 8px 7px;
+	color:white;
+	outline:none;
+	display:block;
 }
 
 #footer a:link {
-        color: white;
-        text-decoration:none;
+	color: white;
+	text-decoration:none;
 }
 
 #footer a:hover {
-        background-color:#676767;
-        color:white;
+  background-color:#676767;
+  color:white;
 }
 
 #footer li {
-        list-style: none;
-        float:left;
-        padding:0px;
+  list-style: none;
+  float:left;
+  padding:0px;
 }
-
-
 
 /*---------------------------------------------------*/
 /*PERSONAL ACCORDION STYLING*/
 
-
 #lists {
 	float: left;
-}
-
-.icons {
-	font-size: 20px;
-	float: right;
-	margin: 0;
 }
 
 #accordion {
@@ -281,7 +272,28 @@ color:#09C;
 	outline: none; 
 }
 
+.nodisplay {
+	display: none;
+}
 
+.buttons {
+	float: right;
+}
+
+.mediaTitle {
+	font-size: 16px;
+	font-weight: bold;
+	color: #03375d;
+}
+
+.mediaDescription {
+	margin-top: 3px;
+	margin-bottom: 10px;
+}
+
+#deleteItem {
+	margin-left: 20px;
+}
 
 /*---------------------------------------------------*/
 /*NAV BAR STYLING*/
@@ -337,14 +349,7 @@ color:#09C;
 	color:white;
 }
 
-/*STYLING FOR DROPDOWN*/
-/*.arrow {
-	border-color:#C0C0C0 transparent white;
-	border-style:solid dashed dashed;
-	margin-left:5px;
-	position:relative;
-	top:10px;
-}*/
+
 .staticMenu dd { position:relative; }
 /* DT styles for sliding doors */
 .staticMenu dt a {
@@ -359,6 +364,10 @@ color:#09C;
 	height: 19px;
 }
 /* UL styles */
+#accordionList {
+	list-style-type: none;
+}
+
 .staticMenu dd ul {
 	display:none;
 	list-style:none;
@@ -387,9 +396,5 @@ ul.mainMenuSub li a:link{
 }
 .mid-line{
 	border-top:1px solid #e5e5e5;
-}
-
-.nodisplay {
-	display: none;
 }
 /*---------------------------------------------------*/

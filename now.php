@@ -6,8 +6,7 @@
  ?>
 
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 	<head>
   	<title>EntertainMe - Now</title>
@@ -21,7 +20,7 @@
 			<div id="mainbar">
 				<ul>
 					<li class="current">
-					<a href="now.php">Now</a>
+						<a href="now.php">Now</a>
 					</li>
 					<li class="#">
 						<a href="later.php">Later</a>
@@ -36,15 +35,15 @@
 				     <a href="#" onClick="return false;"><?php echo htmlentities($_SESSION['username']); ?>
 				     	&#8595;</a>
 				    </dt>
-					 <dd>
-						<ul class="mainMenuSub">
-						 <?php if ($_SESSION['is_admin']==true) : ?>
-						 <li><a href="admin.php">Admin Settings</a></li>
-						 <li><div class="mid-line"></div></li>
-						 <?php endif; ?>
-						 <li><a href="logout.php">Logout</a></li>
-						</ul>
-					 </dd>
+					 	<dd>
+							<ul class="mainMenuSub">
+							 <?php if ($_SESSION['is_admin']==true) : ?>
+							 <li><a href="admin.php">Admin Settings</a></li>
+							 <li><div class="mid-line"></div></li>
+							 <?php endif; ?>
+							 <li><a href="logout.php">Logout</a></li>
+							</ul>
+					 	</dd>
 					 </dl>
 					</li>
 				</ul>
@@ -122,21 +121,19 @@
 			            <input type="submit" name="additem" value="Submit" />
 			        	</form>
 			        	<?php if (isset($addmsg)) echo $addmsg; ?>
-		        	</div>
+		      </div>
 				</div>
-
 			</div> <!--div for main-->
 
 	  	<div id="footer">
 	  		<li><a href="about.php">About</a></li>
         <li><a href="contact.php">Contact</a></li>
 	  	</div>
-
 	  </div> <!--div for all-->
 
 	</body>
-  	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  	<script src="navmenu.js" type="text/javascript"></script>
-  	<script src="accordion.js" type="text/javascript"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="navmenu.js" type="text/javascript"></script>
+	<script src="accordion.js" type="text/javascript"></script>
 </html>
