@@ -11,7 +11,7 @@ html {
 body {
 	text-align: center;
 	margin-top: 40px;
-	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+	font-family: 'Average Sans', sans-serif;
 	padding: 0;
 	background-color: #45CEEF;
 	-webkit-animation: pulse 40s infinite alternate;
@@ -25,14 +25,30 @@ body {
     100% {background-color: #D8CAB4;}
 }
 
-#all {
-	text-align: left;
-	margin: 0 auto;
-	width: 800px;
+img {
+    width: 15%;
+    height: 15%;
 }
 
 #main {
-	margin: 40px 0 0 10px;
+	margin: 0 auto;
+}
+
+.logo {
+	margin-left: 10px;
+	margin-top: 40px;
+	text-align: left;
+}
+
+#main h1 {
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+#main h4 {
+	float: left;
+	margin-left: 180px;
+	padding-right: 10px;
 }
 
 #pageDescription {
@@ -42,31 +58,36 @@ body {
 
 .additems {
 	float: right;
-	margin: -40px 0 0 0;
+	font-family: 'Average Sans', sans-serif;
+	margin-right: 150px;
+	margin-bottom: 100px;
 }
+
 .additems form {
-margin:auto;
-position:relative;
-font-family: Tahoma, Geneva, sans-serif;
-font-size: 14px;
-line-height: 13px;
-font-weight: bold;
-text-decoration: none;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 5px;
-padding:10px;
-border: 1px solid #999;
--webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
--moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	margin:auto;
+	position:relative;
+	font-family: 'Average Sans', sans-serif;
+	font-size: 14px;
+	line-height: 13px;
+	font-weight: bold;
+	text-decoration: none;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 5px;
+	padding:10px;
+	border: 1px solid #999;
+	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
+
 .additems input,select {
-width:300px;
-display: block;
-border: 1px solid #999;
-height: 25px;
+	width:300px;
+	display: block;
+	border: 1px solid #999;
+	height: 25px;
 }
+
 .additems textarea {
 	width: 300px;
 	height: 75px;
@@ -83,12 +104,12 @@ color:#09C;
 
 #footer {
         position: fixed;
-           bottom: 0;
-           width: 100%;
-           height: 32px;
-           background:#2D2D2D;
+        bottom: 0;
+        width: 100%;
+       	height: 32px;
+        background:#2D2D2D;
 
-           line-height:1.28;
+        line-height:1.28;
         margin:0;
         padding:0;
         text-align:left;
@@ -133,9 +154,14 @@ color:#09C;
 }
 
 #accordion {
-	position: absolute;
 	width: 400px;
-	margin: auto;
+	float: left;
+	padding: 20px;
+	margin-left: 150px;
+	margin-bottom: 100px;
+	font-family: 'Average Sans', sans-serif;
+	text-align: left;
+	font-size: 14px;
 }
 
 #accordion .ui-accordion-content { 
@@ -144,7 +170,7 @@ color:#09C;
 
 #accordion .ui-accordion-header {
 	cursor: pointer; 
-  margin: 0px;  
+  	margin: 0px;  
 }  
 
 #accordion .ui-state-focus { 
