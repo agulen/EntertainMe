@@ -7,6 +7,7 @@
 	<head>
   	<title>EntertainMe - Done</title>
   	<link rel="stylesheet" type="text/css" href="mainpages.css">
+  	<link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
   	<!--accordion styling-->
   	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   </head>
