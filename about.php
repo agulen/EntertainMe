@@ -7,7 +7,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>About Us</title>
+    <title>About</title>
     <link rel="stylesheet" type="text/css" href="login.css">
     <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
   </head>
