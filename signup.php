@@ -1,18 +1,11 @@
 <?php
   session_start();
   
-  // Connect to the database
-  try {
-    $dbname = 'entertainme';
-    $user = 'root';
-    $pass = '';
-    $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
-  }
-  catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-  }
-  
-
+  //connect to the database
+  require 'connect.php';
+  //Use the connection from connect.php
+  $dbconn = $conn;
+ 
   if (isset($_POST['quit']) && $_POST['quit']=='Cancel') {
     header('Location: index.php');
     exit();
@@ -53,12 +46,25 @@
 	                           ':pass' => $salted, 
 	                           ':salt' => $salt,
 	                           ':isadmin'=> 0));
-	      $msg = "Account created.";
-
+	      $msg = "Account created. Logging in...";
 
 	      $login_stmt = $dbconn->prepare('SELECT username/*, is_admin*/ FROM userlogin WHERE username=:username AND password=:pass');
 	      $login_stmt->execute(array(':username' => $_POST['username'], ':pass' => $salted));
 	      $user = $login_stmt->fetch();
+        
+        if($user){
+          $_SESSION['username'] = $user['username'];
+          $_SESSION['is_admin'] = $user['is_admin'];
+          
+          ob_start();
+          while (ob_get_status()) 
+          {
+            ob_end_clean();
+          }
+          header( "refresh:2, url=now.php" );
+        } else{
+          $err = 'Error with account creation. Couldn\'t log in';
+        }
   	  }
     }
   }

@@ -8,12 +8,13 @@ html {
 	padding: 0;
 	min-height: 100%;
 }
+
 body {
 	text-align: center;
 	font-family: 'Average Sans', sans-serif;
 	padding: 0;
 	background-color: #45CEEF;
-	-webkit-animation: pulse 40s infinite alternate;
+    -webkit-animation: pulse 40s infinite alternate;
 }
 
 @-webkit-keyframes pulse {
@@ -46,8 +47,15 @@ img {
 
 #main h4 {
 	float: left;
-	margin-left: 180px;
+	margin-left: 250px;
 	padding-right: 10px;
+}
+
+.about_list {
+    text-align: left;
+    padding: 0 auto;
+    margin-left: 280px;
+    margin-right: 280px;
 }
 
 #pageDescription {
@@ -58,15 +66,15 @@ img {
 .additems {
 	float: right;
 	font-family: 'Average Sans', sans-serif;
-	margin-right: 150px;
+	margin-right: 200px;
 	margin-bottom: 100px;
 }
 
 .additems form {
 	margin-top: 20px;
-	margin:auto;
 	position:relative;
 	font-family: 'Average Sans', sans-serif;
+	text-align: left;
 	font-size: 14px;
 	line-height: 13px;
 	font-weight: bold;
@@ -74,13 +82,12 @@ img {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 5px;
-	padding:10px;
+	padding: 10px;
 	border: 1px solid #999;
 	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 	-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
-
 .additems input,select {
 	display: block;
 	background: linear-gradient(to bottom, #f7f7f8 0%,#ffffff 100%);
@@ -110,7 +117,6 @@ img {
         background: #FFF;
     }
 }
-
 .additems textarea {
 	width: 300px;
 	height: 75px;
@@ -183,7 +189,6 @@ img {
     background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
 }
-
 /*   input button not working with styling to change size? help on this
 .additems input.button {
 	width:100px;
@@ -195,12 +200,12 @@ color:#09C;
 
 #footer {
         position: fixed;
-        bottom: 0;
-        width: 100%;
-       	height: 32px;
-        background:#2D2D2D;
+           bottom: 0;
+           width: 100%;
+           height: 32px;
+           background:#2D2D2D;
 
-        line-height:1.28;
+           line-height:1.28;
         margin:0;
         padding:0;
         text-align:left;
@@ -248,7 +253,7 @@ color:#09C;
 	width: 400px;
 	float: left;
 	padding: 20px;
-	margin-left: 150px;
+	margin-left: 200px;
 	margin-bottom: 100px;
 	font-family: 'Average Sans', sans-serif;
 	text-align: left;
@@ -261,18 +266,14 @@ color:#09C;
 
 #accordion .ui-accordion-header {
 	cursor: pointer; 
-  	margin: 0px;  
+  margin: 0px;  
 }  
 
 #accordion .ui-state-focus { 
 	outline: none; 
 }
 
-/*---------------------------------*/
-/*List form styling*/
-.nodisplay {
-        display: none;
-}
+
 
 /*---------------------------------------------------*/
 /*NAV BAR STYLING*/
@@ -304,7 +305,7 @@ color:#09C;
 }
 #mainbar {
 	font-size: 14px;
-	font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+	font-family: 'Average Sans', sans-serif;
 	float: left;
 	top:0;
 	z-index: 999;

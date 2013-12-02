@@ -1,16 +1,10 @@
 <?php
 session_start();
 
-// Connect to the database
-try {
-  $dbname = 'entertainme';
-  $user = 'root';
-  $pass = '';
-  $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
-}
-catch (Exception $e) {
-  echo "Error: " . $e->getMessage();
-}
+//connect to the database
+require 'connect.php';
+//Use the connection from connect.php
+$dbconn = $conn;
 
 // Check login
 if (isset($_POST['login']) && $_POST['login'] == 'Login') {
