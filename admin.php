@@ -268,7 +268,7 @@
         </form>
     </div>
 <!--
-    <div id="ban_user" align="center">
+    <div id="ban_user">
       <h2 class="title">Ban User</h2>
         <form method="post" action="admin.php">
           <label for="username">Username: </label><input type="text" name="username" />
@@ -277,7 +277,7 @@
         </form>
     </div>
 
-    <div id="unban_user" align="center">
+    <div id="unban_user">
       <h2 class="title">Unban User</h2>
         <form method="post" action="admin.php">
           <label for="username">Username: </label><input type="text" name="username" />
@@ -291,7 +291,7 @@
         <input type="submit" name="refresh" value="Refresh" />
     </div>
 <!--
-    <br><div align="center">
+    <br><div>
       <form method="post" action="admin.php">
         <label for="title">Title: </label><input type="text" name="title" />
         <label for="username">Username: </label><input type="text" name="username" />
