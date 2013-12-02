@@ -55,48 +55,50 @@
 				<h1>Done</h1>
 	  		<p class="about_list">Use the nifty "done" lists to remember and keep track of what you have experienced.</p>
 	  	</div>
-	  	<h4>Your Lists</h4><br/>
-			<div id="accordion">
-				<h3>Movies</h3>
-					<div class="moviedata">
-						<?php 
-						$entertainmentType = 'movie';
-						$timePeriod = 'done';
-						load($entertainmentType, $timePeriod);
-						 ?>
-					</div>
-				<h3>TV Shows</h3>
-					<div class="tvdata">
-						<?php 
-						$entertainmentType = 'tv';
-						$timePeriod = 'done';
-						load($entertainmentType, $timePeriod);
-						 ?>
-					</div>
-			  <h3>Music</h3>
-				  <div class="musicdata">
-				  	<?php 
-						$entertainmentType = 'music';
-						$timePeriod = 'done';
-						load($entertainmentType, $timePeriod);
-						 ?>
-				  </div>
-			  <h3>Books</h3>
-				  <div class="bookdata">
-				  	<?php 
-						$entertainmentType = 'book';
-						$timePeriod = 'done';
-						load($entertainmentType, $timePeriod);
-						 ?>
-				  </div>
-			  <h3>Games</h3>
-				  <div class="gamesdata">
-				  	<?php 
-						$entertainmentType = 'game';
-						$timePeriod = 'done';
-						load($entertainmentType, $timePeriod);
-						 ?>
-				  </div>
+	  	<div id="lists">
+		  	<h4>Your Lists</h4>
+				<div id="accordion">
+					<h3>Movies</h3>
+						<div class="moviedata">
+							<?php 
+							$entertainmentType = 'movie';
+							$timePeriod = 'done';
+							load($entertainmentType, $timePeriod);
+							 ?>
+						</div>
+					<h3>TV Shows</h3>
+						<div class="tvdata">
+							<?php 
+							$entertainmentType = 'tv';
+							$timePeriod = 'done';
+							load($entertainmentType, $timePeriod);
+							 ?>
+						</div>
+				  <h3>Music</h3>
+					  <div class="musicdata">
+					  	<?php 
+							$entertainmentType = 'music';
+							$timePeriod = 'done';
+							load($entertainmentType, $timePeriod);
+							 ?>
+					  </div>
+				  <h3>Books</h3>
+					  <div class="bookdata">
+					  	<?php 
+							$entertainmentType = 'book';
+							$timePeriod = 'done';
+							load($entertainmentType, $timePeriod);
+							 ?>
+					  </div>
+				  <h3>Games</h3>
+					  <div class="gamesdata">
+					  	<?php 
+							$entertainmentType = 'game';
+							$timePeriod = 'done';
+							load($entertainmentType, $timePeriod);
+							 ?>
+					  </div>
+				</div>
 			</div>
 		</div> <!--div for main-->
 
