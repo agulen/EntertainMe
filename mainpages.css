@@ -13,6 +13,16 @@ body {
 	margin-top: 40px;
 	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
 	padding: 0;
+	background-color: #45CEEF;
+	-webkit-animation: pulse 40s infinite alternate;
+}
+
+@-webkit-keyframes pulse {
+    0% {background-color: #45CEEF;} 
+    5% {background-color: #FFF5A5;} 
+    50% {background-color: #FFD4DA;} 
+    75% {background-color: #99D2E4;} 
+    100% {background-color: #D8CAB4;}
 }
 
 #all {
