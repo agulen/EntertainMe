@@ -380,4 +380,8 @@ ul.mainMenuSub li a:link{
 .mid-line{
 	border-top:1px solid #e5e5e5;
 }
+
+.nodisplay {
+	display: none;
+}
 /*---------------------------------------------------*/
