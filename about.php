@@ -34,11 +34,11 @@
         <div id="whoweare">
           <h1>Who We Are</h1>
           <p>EntertainMe is composed of a team of five members who are current RPI students in Web System Development. Each has had their unique role in the completion of the launch of EntertainMe.</p>
-          Jed Kundl was ahead of creating administrative roles and functions. He also created the first EntertainMe logos.<br/>
+          <p>Jed Kundl was ahead of creating administrative roles and functions. He also created the first EntertainMe logos.<br/>
           Holly Loomer created the website architecture and skeletons, as well as coded for manipulating data from the database onto the front of our application.<br/>
           Sakawkarn Piyawitwanich styled the website and helped out with manipulating data from the database to the front of the application as well.<br/>
           Andrew Wright created the presentation for our application launch and helped create the database schema.<br/>
-          Altan Gulen helped create the database schema with Andrew, manipulated data from the database to the front of the application, and helped set up our demonstration for the launch of EntertainMe.<br/>
+          Altan Gulen helped create the database schema with Andrew, manipulated data from the database to the front of the application, and helped set up our demonstration for the launch of EntertainMe.<br/></p>
           <p>As a team, we have developed EntertainMe, an application we are proud to present to the media-crazed and organizing-gurus.</p>
         </div>
       <div id="footer">
