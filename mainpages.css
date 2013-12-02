@@ -50,6 +50,13 @@ img {
 	padding-right: 10px;
 }
 
+.about_list {
+    text-align: left;
+    margin-left: 250px;
+    margin-right: 250px;
+    margin-bottom: 50px;
+}
+
 #pageDescription {
 	margin: 0 auto 30px 0;
 	text-align: center;
