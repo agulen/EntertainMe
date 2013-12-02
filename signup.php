@@ -17,10 +17,6 @@
     header('Location: index.php');
     exit();
   }
-
-  //print a message for duplicate usernames 
-
-
   if (isset($_POST['signup']) && $_POST['signup'] == 'Signup') {
     
     
@@ -29,30 +25,41 @@
     }
     else if ($_POST['pass'] !== $_POST['passconfirm']) {
       $msg = "Passwords must match.";
-    }
-    
+    }    
     else {
-      // Generate random salt
-      $salt = hash('sha256', uniqid(mt_rand(), true));      
+      //Check for duplicate usernames
+      $stmt = $dbconn->prepare("SELECT COUNT(*) FROM userlogin WHERE username=:username");
+      $stmt->execute(array(':username' => $_POST['username']));
+      $result = $stmt->fetch();     
 
-      // Apply salt before hashing
-      $salted = hash('sha256', $salt . $_POST['pass']);
-         
-      //$is_admin = ($_POST['isadmin'] == "true" ? true : false);
+      if ($result['COUNT(*)'] > 0) 
+      {
+        $msg = "Username exists already.";
+      }
+      else
+      {
+	      // Generate random salt
+	      $salt = hash('sha256', uniqid(mt_rand(), true));      
 
-      // Store the salt with the password, so we can apply it again and check the result
-      $stmt = $dbconn->prepare("INSERT INTO userlogin (username, password, salt, is_admin) 
-                          VALUES (:username, :pass, :salt, :isadmin)");
-      $stmt->execute(array(':username' => $_POST['username'],
-                           ':pass' => $salted, 
-                           ':salt' => $salt,
-                           ':isadmin'=> 0));
-      $msg = "Account created.";
+	      // Apply salt before hashing
+	      $salted = hash('sha256', $salt . $_POST['pass']);
+	         
+	      //$is_admin = ($_POST['isadmin'] == "true" ? true : false);
+
+	      // Store the salt with the password, so we can apply it again and check the result
+	      $stmt = $dbconn->prepare("INSERT INTO userlogin (username, password, salt, is_admin) 
+	                          VALUES (:username, :pass, :salt, :isadmin)");
+	      $stmt->execute(array(':username' => $_POST['username'],
+	                           ':pass' => $salted, 
+	                           ':salt' => $salt,
+	                           ':isadmin'=> 0));
+	      $msg = "Account created.";
 
 
-      $login_stmt = $dbconn->prepare('SELECT username/*, is_admin*/ FROM userlogin WHERE username=:username AND password=:pass');
-      $login_stmt->execute(array(':username' => $_POST['username'], ':pass' => $salted));
-      $user = $login_stmt->fetch();
+	      $login_stmt = $dbconn->prepare('SELECT username/*, is_admin*/ FROM userlogin WHERE username=:username AND password=:pass');
+	      $login_stmt->execute(array(':username' => $_POST['username'], ':pass' => $salted));
+	      $user = $login_stmt->fetch();
+  	  }
     }
   }
 ?>
