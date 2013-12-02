@@ -44,11 +44,11 @@ img {
 
 #main {
         margin: 0 auto;
-        padding-top: 40px; 
+        padding-top: 10px; 
 }
 
 #main h1 {
-        margin: 40px;
+        margin-top: 10px;
         font-size: 40px;
 }
 
