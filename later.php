@@ -56,7 +56,7 @@
   		</div>
 			<div id="main">
 				<div id="pageDescription">
-					<h2>Later</h2>
+					<h1>Later</h1>
 		  		<p class="about_list">Life can be hectic. You don&rsquo;t always have time to read this month&rsquo;s bestseller or watch the hottest new film, but you don&rsquo;t want to forget about it. Simply add it to your &lsquo;Later&rsquo; list to enjoy when life gives you a break, drinks with tiny umbrellas optional.</p>
 		  	</div>
 		  	<h4>Your Lists</h4><br/>
