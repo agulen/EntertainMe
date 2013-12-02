@@ -108,32 +108,29 @@
     exit();
   }
 
-  if (isset($_POST['remove']) && $_POST['remove'] == 'remove') {
-    //remove from the entertainment table
-    //remove from the current table its in
+  if (isset($_POST['remove'])) {
+    
+    $stmt = $dbconn->prepare("SELECT id FROM entertainment WHERE title = :title");
+    $stmt->execute(array(':title' => $_POST['title']));
+    $res = $stmt->fetch();
+    $id = $res['id'];
 
-/*
-    if () {
-      header('Location: now.php');
-      exit();
+    if($_POST['remove'] == 'now')
+    {
+      $stmt = $dbconn->prepare("DELETE FROM now WHERE username = :username AND entertainment_id = :id ");
+      $res = $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
     }
-    if () {
-      header('Location: later.php');
-      exit();
+    else if($_POST['remove'] == 'later')
+    {
+      $stmt = $dbconn->prepare("DELETE FROM later WHERE username = :username AND entertainment_id = :id ");
+      $res = $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
     }
-    if () {
-      header('Location: done.php');
-      exit();
-    }*/
-  }
+    else if($_POST['remove'] == 'done')
+    {
+      $stmt = $dbconn->prepare("DELETE FROM done WHERE username = :username AND entertainment_id = :id ");
+      $res = $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
+    }
 
-
-/*echo '<form method="post" action="move.php">
-        <label for="title">'.$row['title'].'</label><input type="text" name="title" class="nodisplay" value="'.$row['title'].'" readonly>;
-        <input type="submit" name="nowtolater" value="nowtolater" class="icon" />
-        <input type="submit" name="nowtodone" value="nowtodone" class="icon" />
-        <input type="submit" name="latertodone" value="latertodone" class="icon" />
-        <input type="submit" name="remove" value="remove" class="icon" />
-</form>';*/
-
+    header('Location: now.php');
+    exit();
 ?>

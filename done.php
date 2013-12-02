@@ -53,7 +53,7 @@
 		<div id="main">
 			<div id="pageDescription">
 				<h3>Done</h3>
-	  		<p>Description of the done page. Design this page.</p>
+	  		<p class="about_list">You know that feeling. The one where someone is talking about a book they just finished, and it sounds super familiar. Did you read it? Or did you just hear someone else talk about it? Keep track of it all, simply. Once you&rsquo;ve finished that enthralling book or epic movie, simply move it to your &lsquo;Done&rsquo; list where it will serve as a reminder so you never forget!</p>
 	  	</div>
 	  	<h4>Your Lists</h4><br/>
 			<div id="accordion">

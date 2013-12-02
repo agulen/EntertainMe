@@ -66,6 +66,15 @@
       $msg = "Usernames must match.";
     }
     else {
+      $stmt = $dbconn->prepare("DELETE FROM now WHERE username = :username");
+      $stmt->execute(array(':username' => $_POST['username']));
+
+      $stmt = $dbconn->prepare("DELETE FROM later WHERE username = :username");
+      $stmt->execute(array(':username' => $_POST['username']));
+
+      $stmt = $dbconn->prepare("DELETE FROM done WHERE username = :username");
+      $stmt->execute(array(':username' => $_POST['username']));
+
       $stmt = $dbconn->prepare("DELETE FROM userlogin WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
       $msg = "Account removed.";
@@ -199,15 +208,16 @@
   <meta charset="utf-8">
   <title>Entertain.Me - Admin Page</title>
   <link rel="stylesheet" type="text/css" href="admin.css">
+  <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
   <div id="all"><br>
-    <div id="banner" align="center"><h1 class="title">Admin Functions</h1></div>
+    <div id="banner"><h1 class="title">Admin Functions</h1></div>
 
-    <div align="center"><?php if (isset($msg)) echo "<p>$msg</p>" ?></div>
+    <div><?php if (isset($msg)) echo "<p>$msg</p>" ?></div>
 
-    <div id="add_user" align="center">
+    <div id="add_user">
       <h2 class="title">Add New User</h2>
         <form method="post" action="admin.php">
           <label for="username">Username: </label><input type="text" name="username" />
@@ -218,7 +228,7 @@
         </form>
     </div>
 
-    <div id="remove_user" align="center">
+    <div id="remove_user">
       <h2 class="title">Remove User</h2>
         <form method="post" action="admin.php">
           <label for="username">Username: </label><input type="text" name="username" />
@@ -227,7 +237,7 @@
         </form>
     </div>
 
-    <div id="add_item" align="center">
+    <div id="add_item">
       <h2 class="title">Add Item</h2>
         <form method="post" action="admin.php">
           <label for="title">Title: </label><input type="text" name="title" />
@@ -240,7 +250,7 @@
         </form>
     </div>
 
-    <div id="remove_item" align="center">
+    <div id="remove_item">
       <h2 class="title">Remove Item</h2>
         <form method="post" action="admin.php">
           <label for="title">Title: </label><input type="text" name="title" />
@@ -249,7 +259,7 @@
         </form>
     </div>
 
-    <div id="make_admin" align="center">
+    <div id="make_admin">
       <h2 class="title">Make Admin</h2>
         <form method="post" action="admin.php">
           <label for="username">Username: </label><input type="text" name="username" />
@@ -258,7 +268,7 @@
         </form>
     </div>
 
-    <div id="remove_admin" align="center">
+    <div id="remove_admin">
       <h2 class="title">Remove Admin</h2>
         <form method="post" action="admin.php">
           <label for="username">Username: </label><input type="text" name="username" />
@@ -267,7 +277,7 @@
         </form>
     </div>
 <!--
-    <div id="ban_user" align="center">
+    <div id="ban_user">
       <h2 class="title">Ban User</h2>
         <form method="post" action="admin.php">
           <label for="username">Username: </label><input type="text" name="username" />
@@ -276,7 +286,7 @@
         </form>
     </div>
 
-    <div id="unban_user" align="center">
+    <div id="unban_user">
       <h2 class="title">Unban User</h2>
         <form method="post" action="admin.php">
           <label for="username">Username: </label><input type="text" name="username" />
@@ -285,12 +295,12 @@
         </form>
     </div>
 -->
-    <br><div align="center">
+    <br><div>
       <form method="post" action="admin.php">
         <input type="submit" name="refresh" value="Refresh" />
     </div>
 <!--
-    <br><div align="center">
+    <br><div>
       <form method="post" action="admin.php">
         <label for="title">Title: </label><input type="text" name="title" />
         <label for="username">Username: </label><input type="text" name="username" />

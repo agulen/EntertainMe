@@ -19,6 +19,8 @@ require 'login.php';
       <div class="logo">
         <img src="http://i.minus.com/iI7WTHovllxD1.png" alt="logo" width="400px" height="auto" >
       </div>
+
+      <br><div align="center">EntertainMe. Now, and Later.</div>
       
       <div id="main">
       <?php if (isset($_SESSION['username'])):
