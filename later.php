@@ -57,7 +57,7 @@
 			<div id="main">
 				<div id="pageDescription">
 					<h1>Later</h1>
-		  		<p class="about_list">Life can be hectic. You don&rsquo;t always have time to read this month&rsquo;s bestseller or watch the hottest new film, but you don&rsquo;t want to forget about it. Simply add it to your &lsquo;Later&rsquo; list to enjoy when life gives you a break, drinks with tiny umbrellas optional.</p>
+		  		<p class="about_list">Where did the time go? Use these lists to remember the media you want to experience when you have the time.</p>
 		  	</div>
 		  	<h4>Your Lists</h4><br/>
 				<div id="accordion">
@@ -102,8 +102,9 @@
 							 ?>
 					  </div>
 				</div>
-				<h4>Add more items</h4><br/>
+
 				<div class="additems">
+					<h4>Add more items</h4><br/>
 					<form method="post" action="later.php">
 						<select name="dropdown">
 						  <option value="type">What type of entertainment?</option>
