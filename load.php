@@ -1,143 +1,61 @@
-<?php
-  session_start();
-  
-  // Connect to the database
-  try {
-    $dbname = 'entertainme';
-    $user = 'root';
-    $pass = '';
-    $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
-  }
-  catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-  }
+<?php 
+  function load($entertainmentType, $timePeriod) {
 
-  if (isset($_POST['nowtolater']) && $_POST['nowtolater'] == 'nowtolater') {
-    $stmt = $dbconn->prepare("SELECT id FROM entertainment WHERE title = :title");
-    $stmt->execute(array(':title' => $_POST['title']));
-    $res = $stmt->fetch();
-    $id = $res['id'];
+    require 'connect.php';
 
-    $stmt = $dbconn->prepare("INSERT INTO later (username, entertainment_id) VALUES (:username, :id)");
-    $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-
-    $stmt = $dbconn->prepare("DELETE FROM now WHERE username = :username AND entertainment_id = :id");
-    $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-    
-    header('Location: now.php');
-    exit();
-  }
-
-  if (isset($_POST['nowtodone']) && $_POST['nowtodone'] == 'nowtodone') {
-    $stmt = $dbconn->prepare("SELECT id FROM entertainment WHERE title = :title");
-    $stmt->execute(array(':title' => $_POST['title']));
-    $res = $stmt->fetch();
-    $id = $res['id'];
-
-    $stmt = $dbconn->prepare("INSERT INTO done (username, entertainment_id) VALUES (:username, :id)");
-    $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-
-    $stmt = $dbconn->prepare("DELETE FROM now WHERE username = :username AND entertainment_id = :id");
-    $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-
-    header('Location: now.php');
-    exit();
-  }
-
-  if (isset($_POST['latertonow']) && $_POST['latertonow'] == 'latertonow') {
-    $stmt = $dbconn->prepare("SELECT id FROM entertainment WHERE title = :title");
-    $stmt->execute(array(':title' => $_POST['title']));
-    $res = $stmt->fetch();
-    $id = $res['id'];
-
-    $stmt = $dbconn->prepare("INSERT INTO now (username, entertainment_id) VALUES (:username, :id)");
-    $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-
-    $stmt = $dbconn->prepare("DELETE FROM later WHERE username = :username AND entertainment_id = :id");
-    $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-
-    header('Location: later.php');
-    exit();
-  }
-
-  if (isset($_POST['latertodone']) && $_POST['latertodone'] == 'latertodone') {
-    $stmt = $dbconn->prepare("SELECT id FROM entertainment WHERE title = :title");
-    $stmt->execute(array(':title' => $_POST['title']));
-    $res = $stmt->fetch();
-    $id = $res['id'];
-
-    $stmt = $dbconn->prepare("INSERT INTO archive (username, entertainment_id) VALUES (:username, :id)");
-    $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-
-    $stmt = $dbconn->prepare("DELETE FROM later WHERE username = :username AND entertainment_id = :id");
-    $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-
-    header('Location: later.php');
-    exit();
-  }
-
-  if (isset($_POST['donetonow']) && $_POST['donetonow'] == 'donetonow') {
-    $stmt = $dbconn->prepare("SELECT id FROM entertainment WHERE title = :title");
-    $stmt->execute(array(':title' => $_POST['title']));
-    $res = $stmt->fetch();
-    $id = $res['id'];
-
-    $stmt = $dbconn->prepare("INSERT INTO now (username, entertainment_id) VALUES (:username, :id)");
-    $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-
-    $stmt = $dbconn->prepare("DELETE FROM done WHERE username = :username AND entertainment_id = :id");
-    $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-
-    header('Location: done.php');
-    exit();
-  }
-
-  if (isset($_POST['donetolater']) && $_POST['donetolater'] == 'donetolater') {
-    $stmt = $dbconn->prepare("SELECT id FROM entertainment WHERE title = :title");
-    $stmt->execute(array(':title' => $_POST['title']));
-    $res = $stmt->fetch();
-    $id = $res['id'];
-
-    $stmt = $dbconn->prepare("INSERT INTO later (username, entertainment_id) VALUES (:username, :id)");
-    $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-
-    $stmt = $dbconn->prepare("DELETE FROM done WHERE username = :username AND entertainment_id = :id");
-    $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-
-    header('Location: done.php');
-    exit();
-  }
-
-  if (isset($_POST['remove']) && $_POST['remove'] == 'remove') {
-    //remove from the entertainment table
-    //remove from the current table its in
-
-/*
-    if () {
-      header('Location: now.php');
-      exit();
+    /*count statement for null checking*/
+    $sql = "SELECT COUNT(*)
+    FROM  `entertainment` 
+    INNER JOIN  `".$timePeriod."` 
+    ON ".$timePeriod.".`entertainment_id` = entertainment.`id`
+    WHERE  `username`='".$_SESSION['username']."' AND `type`='".$entertainmentType."'";
+    $call = $conn->query($sql);
+    if ($call) {
+      /*checking if no items*/
+      if ($call->fetchColumn() == 0) {
+      	echo 'Nothing is here yet';
+      }
+      else {
+    	  $sql = "SELECT entertainment.`title` , entertainment.`description`
+    	  FROM  `entertainment` 
+        INNER JOIN  `".$timePeriod."` 
+        ON ".$timePeriod.".`entertainment_id` = entertainment.`id` 
+        WHERE  `username`='".$_SESSION['username']."' AND `type`='".$entertainmentType."'";
+        $call = $conn->query($sql);
+        echo '<ul>';
+        foreach ($call as $row) {
+        	echo '<li>';
+          echo '<form method="post" action="move.php">';
+          echo '<label for="title">'.$row['title'].'</label>';
+          echo '<input type="text" name="title" class="nodisplay" value="'.$row['title'].'" readonly>';
+        	if ($timePeriod == 'now') {
+            echo '<input type="submit" name="nowtolater" value="nowtolater" class="icon" />
+                  <input type="submit" name="nowtodone" value="nowtodone" class="icon" />
+                  <input type="submit" name="remove" value="remove" class="icon" />';
+        }
+          if ($timePeriod == 'later') {
+            echo '<input type="submit" name="latertonow" value="latertonow" class="icon" />
+                  <input type="submit" name="latertodone" value="latertodone" class="icon" />
+                  <input type="submit" name="remove" value="remove" class="icon" />';
+          }
+          if ($timePeriod == 'done') {
+            echo '<input type="submit" name="donetonow" value="donetonow" class="icon" />
+                  <input type="submit" name="donetolater" value="donetolater" class="icon" />';
+          }
+          echo '</form>';
+          /*printf("Title: %s <span class='icons'>
+            <span class='icon1'>&#x2611</span>
+            <span class='icon2'>&#x2799</span>
+            <span class='icon3'>&#x2612</span></span>
+        		<br/>", $row['title']);*/
+        	printf("Description: %s ", $row['description']);
+        	echo '</li>';
+        }
+        echo '</ul>';
+    	}
     }
-    if () {
-      header('Location: later.php');
-      exit();
-    }
-    if () {
-      header('Location: done.php');
-      exit();
-    }*/
   }
 
-
-/*echo '<form method="post" action="move.php">
-        <label for="title">'.$row['title'].'</label><input type="text" name="title" class="nodisplay" value="'.$row['title'].'" readonly>;
-        <input type="submit" name="nowtolater" value="nowtolater" class="icon" />
-        <input type="submit" name="nowtodone" value="nowtodone" class="icon" />
-        <input type="submit" name="latertodone" value="latertodone" class="icon" />
-        <input type="submit" name="remove" value="remove" class="icon" />
-</form>';*/
 
 ?>
 
-
-
-<!--Note:REMOVE????-->
