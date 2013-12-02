@@ -52,7 +52,7 @@
 
 		<div id="all">
   		<div class="logo">
-  			Logo area.
+  			<img src="http://i.minus.com/iI7WTHovllxD1.png" alt="logo" width="400px" height="auto" >
   		</div>
 			<div id="main">
 				<div id="pageDescription">
