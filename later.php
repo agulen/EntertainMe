@@ -59,65 +59,69 @@
 					<h1>Later</h1>
 		  		<p class="about_list">Where did the time go? Use these lists to remember the media you want to experience when you have the time.</p>
 		  	</div>
-		  	<h4>Your Lists</h4><br/>
-				<div id="accordion">
-					<h3>Movies</h3>
-						<div class="moviedata">
-							<?php 
-							$entertainmentType = 'movie';
-							$timePeriod = 'later';
-							load($entertainmentType, $timePeriod);
-							 ?>
-						</div>
-					<h3>TV Shows</h3>
-						<div class="tvdata">
-							<?php 
-							$entertainmentType = 'tv';
-							$timePeriod = 'later';
-							load($entertainmentType, $timePeriod);
-							 ?>
-						</div>
-				  <h3>Music</h3>
-					  <div class="musicdata">
-					  	<?php 
-							$entertainmentType = 'music';
-							$timePeriod = 'later';
-							load($entertainmentType, $timePeriod);
-							 ?>
-					  </div>
-				  <h3>Books</h3>
-					  <div class="bookdata">
-					  	<?php 
-							$entertainmentType = 'book';
-							$timePeriod = 'later';
-							load($entertainmentType, $timePeriod);
-							 ?>
-					  </div>
-				  <h3>Games</h3>
-					  <div class="gamesdata">
-					  	<?php 
-							$entertainmentType = 'game';
-							$timePeriod = 'later';
-							load($entertainmentType, $timePeriod);
-							 ?>
-					  </div>
+		  	<div id="lists">
+			  	<h4>Your Lists</h4>
+					<div id="accordion">
+						<h3>Movies</h3>
+							<div class="moviedata">
+								<?php 
+								$entertainmentType = 'movie';
+								$timePeriod = 'later';
+								load($entertainmentType, $timePeriod);
+								 ?>
+							</div>
+						<h3>TV Shows</h3>
+							<div class="tvdata">
+								<?php 
+								$entertainmentType = 'tv';
+								$timePeriod = 'later';
+								load($entertainmentType, $timePeriod);
+								 ?>
+							</div>
+					  <h3>Music</h3>
+						  <div class="musicdata">
+						  	<?php 
+								$entertainmentType = 'music';
+								$timePeriod = 'later';
+								load($entertainmentType, $timePeriod);
+								 ?>
+						  </div>
+					  <h3>Books</h3>
+						  <div class="bookdata">
+						  	<?php 
+								$entertainmentType = 'book';
+								$timePeriod = 'later';
+								load($entertainmentType, $timePeriod);
+								 ?>
+						  </div>
+					  <h3>Games</h3>
+						  <div class="gamesdata">
+						  	<?php 
+								$entertainmentType = 'game';
+								$timePeriod = 'later';
+								load($entertainmentType, $timePeriod);
+								 ?>
+						  </div>
+					</div>
 				</div>
-				<h4>Add more items</h4><br/>
-				<div class="additems">
-					<form method="post" action="later.php">
-						<select name="dropdown">
-						  <option value="type">What type of entertainment?</option>
-						  <option value="movie">Movie</option>
-						  <option value="tvshow">TV Show</option>
-						  <option value="music">Music</option>
-						  <option value="book">Book</option>
-						  <option value="game">Game</option>
-						</select><br/>
-            <label for="title">Title </label><input type="text" name="title" /></br>
-            <label for="description">Description </label><textarea id="description" name="description"></textarea><br/>
-            <input name="additem" type="submit" value="Submit" />
-        	</form>
-        	<?php if (isset($addmsg)) echo $addmsg; ?>
+				<div id="add">
+					<h5>Add more items</h5><br/>
+					<div class="additems">
+						<form method="post" action="later.php">
+							<select name="dropdown">
+							  <option value="type">What type of entertainment?</option>
+							  <option value="movie">Movie</option>
+							  <option value="tvshow">TV Show</option>
+							  <option value="music">Music</option>
+							  <option value="book">Book</option>
+							  <option value="game">Game</option>
+							</select><br/>
+			            <label for="title">Title </label><input type="text" name="title" /></br>
+			            <label for="description">Description </label><textarea id="description" name="description"></textarea><br/>
+			            <input name="additem" type="submit" value="Submit" />
+			        	</form>
+			        	<?php if (isset($addmsg)) echo $addmsg; ?>
+			        </div>
 				</div>
 			</div> <!--div for main-->
 
