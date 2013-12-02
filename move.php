@@ -66,7 +66,7 @@
     $res = $stmt->fetch();
     $id = $res['id'];
 
-    $stmt = $dbconn->prepare("INSERT INTO archive (username, entertainment_id) VALUES (:username, :id)");
+    $stmt = $dbconn->prepare("INSERT INTO done (username, entertainment_id) VALUES (:username, :id)");
     $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
 
     $stmt = $dbconn->prepare("DELETE FROM later WHERE username = :username AND entertainment_id = :id");
@@ -133,4 +133,5 @@
 
     header('Location: now.php');
     exit();
+  }
 ?>
