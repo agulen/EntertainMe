@@ -29,7 +29,7 @@
 					</li>
 					<!-- Drop Down menu Items -->  
 					<li class="dropdown">
-					 <dl class="staticMenu">
+					 <dl class="staticMenu"> <!--dl, dt, dd from code given to make the dropdown menu, see link in sources.txt-->
 				    <dt>
 				     <a href="#" onClick="return false;"><?php echo htmlentities($_SESSION['username']); ?>
 				     	&#8595;</a>
