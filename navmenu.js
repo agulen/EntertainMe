@@ -1,3 +1,7 @@
+//the javascript provided here facilitates the ability to have a drop-down menu (where it says Username)
+//this javascript was obtained from http://www.2lessons.info/2012/09/how-to-create-google-like-top-bar-using.html
+
+
 var SubMenutimer;
 var last_o;
 $(".mainbar").ready(function() {
