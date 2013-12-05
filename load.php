@@ -3,7 +3,7 @@
 
     require 'connect.php';
 
-    /*count statement for null checking*/
+    //count statement for null checking
     $sql = "SELECT COUNT(*)
     FROM  `entertainment` 
     INNER JOIN  `".$timePeriod."` 
@@ -11,25 +11,25 @@
     WHERE  `username`='".$_SESSION['username']."' AND `type`='".$entertainmentType."'";
     $call = $conn->query($sql);
     if ($call) {
-      /*checking if no items*/
+      //if no items found
       if ($call->fetchColumn() == 0) {
-        echo 'Nothing is here';
+        echo 'Nothing is here'; //display this in the accordion
       }
       else {
-        //Populate accordion with data!
+        //Populate accordion with data. First select the items needed: title and description
         $sql = "SELECT entertainment.`title` , entertainment.`description`
         FROM  `entertainment` 
         INNER JOIN  `".$timePeriod."` 
         ON ".$timePeriod.".`entertainment_id` = entertainment.`id` 
         WHERE  `username`='".$_SESSION['username']."' AND `type`='".$entertainmentType."'";
-        $call = $conn->query($sql);
-        echo '<ul id="accordionList">';
-        foreach ($call as $row) {
+        $call = $conn->query($sql); 
+        echo '<ul id="accordionList">'; //echo html to work with displaying the proper data in the accordion
+        foreach ($call as $row) { //for each type of media in the certain table, display their titles and descriptions
           echo '<li>';
           echo '<form method="post" action="move.php">';
           echo '<label class="mediaTitle" for="title">'.$row['title'].'</label>';
           echo '<input type="text" name="title" class="nodisplay" value="'.$row['title'].'" readonly>';
-          if ($timePeriod == 'now') {
+          if ($timePeriod == 'now') { //to determine which "action" buttons to put in the div 
             echo '<div class="buttons">
                     <input type="image" src="toLater.png" name="nowtolater" value="nowtolater" class="icon" title="Move to later"/>
                     <input type="image" src="toDone.png" name="nowtodone" value="nowtodone" class="icon" title="Mark as done"/>
