@@ -1,8 +1,11 @@
+/* This login.css is originally used for login.php but it is also used
+  for the signup.php since the codes are pretty much the same. */
+
+/* no boarders page */
 * {
   margin:0;
   padding:0;
 }
-
 html {
   overflow-y:scroll;
   margin: 0;
@@ -10,6 +13,9 @@ html {
   min-height: 100%;
 }
 
+/* styling fonts and put all the text in the center,
+  leaving space at the top of the page,
+  changing background colors using webkit animation provided in CSS3 */
 body {
   text-align: center;
   margin-top: 40px;
@@ -18,7 +24,6 @@ body {
   background-color: #45CEEF;
   -webkit-animation: pulse 40s infinite alternate;
 }
-
 @-webkit-keyframes pulse {
   0% {background-color: #45CEEF;} 
   5% {background-color: #FFF5A5;} 
@@ -27,6 +32,7 @@ body {
   100% {background-color: #D8CAB4;}
 }
 
+/* navigation bar at the top */
 #mainbar {
   float: left;
   top:0;
@@ -38,28 +44,30 @@ body {
   height:32px;
 }
 
+/* leaving spaces around the logo and the other content */
 img {
   padding-top: 100px;
 }
 
+/* content in main container in the center of the page */ 
 #main {
   margin: 0 auto;
   padding-top: 10px; 
 }
 
+/* header */
 #main h1 {
   margin-top: 10px; 
   font-size: 40px;  
 }
 
+/* styling the input textfield */
 #main input {
   margin:8px;
 }
-
 form {
   margin-bottom: 100px;
 }
-
 #main input[type=password] {
   background: linear-gradient(to bottom, #f7f7f8 0%,#ffffff 100%);
   border-radius: 3px;
@@ -88,7 +96,6 @@ form {
       background: #FFF;
   }
 }
-
 #main input[type=text] {
   background: linear-gradient(to bottom, #f7f7f8 0%,#ffffff 100%);
   border-radius: 3px;
@@ -117,7 +124,6 @@ form {
       background: #FFF;
   }
 }
-
 #main textarea {
   background: linear-gradient(to bottom, #f7f7f8 0%,#ffffff 100%);
   border-radius: 3px;
@@ -145,6 +151,7 @@ form {
   }
 }
 
+/* styling the buttons */
 #main input[type=submit] {
   display: inline-block;
   outline: none;
@@ -168,7 +175,6 @@ form {
   background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
 }
-
 #main input[type=submit]:hover {
   text-decoration: none;
 
@@ -187,28 +193,26 @@ form {
   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
 }
 
+/* styling content in mostly about.php */
 p {
   padding: 10px 200px 0px 200px;
   text-align: left;
 }
-
 #about {
   margin-bottom: 40px;
 }
-
 #howitworks {
   margin-bottom: 40px;
 }
-
 #whoweare {
   margin-bottom: 140px;
 }
-
 p:first-letter {
   display:block;
   font-size: 30px;
 }
 
+/* footer bar */
 #footer {
   position: fixed;
      bottom: 0;
@@ -223,7 +227,6 @@ p:first-letter {
   direction:ltr;
   unicode-bidi:embed;
 }
-
 #footer a {
   text-decoration:none;
   padding:6px 8px 7px;
@@ -231,17 +234,14 @@ p:first-letter {
   outline:none;
   display:block;
 }
-
 #footer a:link {
   color: white;
   text-decoration:none;
 }
-
 #footer a:hover {
   background-color:#676767;
   color:white;
 }
-
 #footer li {
   list-style: none;
   float:left;
