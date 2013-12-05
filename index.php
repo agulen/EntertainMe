@@ -1,4 +1,5 @@
 <?php
+//bring in the login functionality to the homepage
 require 'login.php';
 ?>
 
@@ -13,7 +14,7 @@ require 'login.php';
   <body>
     <div id="all">
       <div id="navigation">
-        <div id="mainbar">     
+        <div id="mainbar"> <!--placeholder for the nav bar at top to keep styling synonymous-->
         </div>
       </div>
       <div class="logo">
@@ -23,7 +24,7 @@ require 'login.php';
       <br><div align="center">EntertainMe. Now, and Later.</div>
       
       <div id="main">
-      <?php if (isset($_SESSION['username'])):
+      <?php if (isset($_SESSION['username'])): //if the user is already logged in, redirect to the user's lists
                 header('Location: now.php');
                 exit();
              ?>
