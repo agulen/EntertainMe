@@ -1,8 +1,10 @@
+/* This css is for admin.php. */
+
+/* no boarders page */
 * {
   margin:0;
   padding:0;
 }
-
 html {
   overflow-y:scroll;
   margin: 0;
@@ -10,6 +12,9 @@ html {
   min-height: 100%;
 }
 
+/* styling fonts and put all the text in the center,
+  leaving space at the top and bottom of the page,
+  changing background colors using webkit animation provided in CSS3 */
 body {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -18,7 +23,6 @@ body {
   background-color: #45CEEF;
   -webkit-animation: pulse 40s infinite alternate;
 }
-
 @-webkit-keyframes pulse {
   0% {background-color: #45CEEF;} 
   5% {background-color: #FFF5A5;} 
@@ -27,40 +31,38 @@ body {
   100% {background-color: #D8CAB4;}
 }
 
+/* putting the content to the left by leaving some space
+  between the boarder and the text */
 #all {
 	text-align: left;
 	margin-left: 40px;
 }
 
+/* styling each functions admin could have */
 #add_user {
 	padding-top: 30px;
 	padding-bottom: 20px;
 }
-
 #remove_user {
 	padding-bottom: 20px;
 }
-
 #add_item {
 	padding-bottom: 20px;
 }
-
 #remove_item {
 	padding-bottom: 20px;
 }
-
 #make_admin {
 	padding-bottom: 20px;
 }
-
 #descriptionText {
     width: 300px;
 }
 
+/* styling the input textfield */
 input {
   margin:8px;
 }
-
 input[type=password] {
   background: linear-gradient(to bottom, #f7f7f8 0%,#ffffff 100%);
   border-radius: 3px;
@@ -89,7 +91,6 @@ input[type=password] {
       background: #FFF;
   }
 }
-
 input[type=text] {
   background: linear-gradient(to bottom, #f7f7f8 0%,#ffffff 100%);
   border-radius: 3px;
@@ -118,7 +119,6 @@ input[type=text] {
       background: #FFF;
   }
 }
-
 textarea {
   background: linear-gradient(to bottom, #f7f7f8 0%,#ffffff 100%);
   border-radius: 3px;
@@ -146,6 +146,7 @@ textarea {
   }
 }
 
+/* styling the buttons */
 input[type=submit] {
   display: inline-block;
   outline: none;
@@ -169,7 +170,6 @@ input[type=submit] {
   background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
 }
-
 input[type=submit]:hover {
   text-decoration: none;
 
@@ -178,7 +178,6 @@ input[type=submit]:hover {
   background: -moz-linear-gradient(top,  #f88e11,  #f06015);
   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
 }
-
 input[type=submit]:active {
   position: relative;
   top: 1px;
