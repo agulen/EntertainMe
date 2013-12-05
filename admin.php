@@ -54,15 +54,16 @@
       $msg = "Usernames must match.";
     }
     else {
+      // delete user's now list
       $stmt = $conn->prepare("DELETE FROM now WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
-
+      // delete user's later list
       $stmt = $conn->prepare("DELETE FROM later WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
-
+      // delete user's done list
       $stmt = $conn->prepare("DELETE FROM done WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
-
+      // delete user
       $stmt = $conn->prepare("DELETE FROM userlogin WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
       $msg = "Account removed.";
@@ -83,6 +84,7 @@
         $msg = "Please fill in all form fields.";
       }
       else {
+        // add items to entertainment table
         $stmt = $conn->prepare("INSERT INTO entertainment (title, description, type) VALUES (:title, :description, :type)");
         $stmt->execute(array(':title' => $_POST['title'], ':description' => $_POST['description'], ':type' => $_POST['item_type']));
         $msg = "Item Added.";
@@ -99,6 +101,7 @@
       $msg = "Titles must match.";
     }
     else {
+      // remove item from entertainment table
       $stmt = $conn->prepare("DELETE FROM entertainment WHERE title = :title");
       $stmt->execute(array(':title' => $_POST['title']));
       $msg = "Item removed.";
@@ -115,6 +118,7 @@
       $msg = "Usernames must match.";
     }
     else {
+      // update user's "is_admin" to true
       $stmt = $conn->prepare("UPDATE userlogin SET is_admin = 1 WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
       $msg = "Account is now Admin User.";
@@ -131,6 +135,7 @@
       $msg = "Usernames must match.";
     }
     else {
+      // update user's is_admin to false
       $stmt = $conn->prepare("UPDATE userlogin SET is_admin = 0 WHERE username = :username");
       $stmt->execute(array(':username' => $_POST['username']));
       $msg = "Account is no longer an Admin.";

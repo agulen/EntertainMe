@@ -6,18 +6,25 @@
   //Use the connection from connect.php
   $dbconn = $conn;
 
+  // READ THIS:
+  // Since each if statement essestially performs the same action, the process wil be describe for the first one only.
+
   if (isset($_POST['nowtolater']) && $_POST['nowtolater'] == 'nowtolater') {
+    // get entertainment item
     $stmt = $dbconn->prepare("SELECT id FROM entertainment WHERE title = :title");
     $stmt->execute(array(':title' => $_POST['title']));
+    // since entertainment items are unique, pull first (only) response
     $res = $stmt->fetch();
+    // get entertainment_id
     $id = $res['id'];
 
+    // put item in destination table
     $stmt = $dbconn->prepare("INSERT INTO later (username, entertainment_id) VALUES (:username, :id)");
     $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-
+    // remove it from source table
     $stmt = $dbconn->prepare("DELETE FROM now WHERE username = :username AND entertainment_id = :id");
     $stmt->execute(array(':username' => $_SESSION['username'], ':id' => $id));
-    
+    // return us to whatever list we came from
     header('Location: now.php');
     exit();
   }
