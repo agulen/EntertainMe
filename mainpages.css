@@ -1,3 +1,7 @@
+/* This css is used for now.php, later.php and done.php
+	since the codes are pretty much the same. */
+
+/* no boarders page */
 * {
 	margin:0;
 	padding:0;
@@ -9,6 +13,8 @@ html {
 	min-height: 100%;
 }
 
+/* styling fonts and put all the text in the center,
+  changing background colors using webkit animation provided in CSS3 */
 body {
 	text-align: center;
 	font-family: 'Average Sans', sans-serif;
@@ -17,12 +23,7 @@ body {
   -webkit-animation: pulse 40s infinite alternate;
 }
 
-img {
-  width: 15%;
-  height: 15%;
-}
-
-/*Pulsing background*/
+/* Pulsing background */
 @-webkit-keyframes pulse {
   0% {background-color: #45CEEF;} 
   5% {background-color: #FFF5A5;} 
@@ -31,34 +32,35 @@ img {
   100% {background-color: #D8CAB4;}
 }
 
-#main {
-	margin: 0 auto;
-	width: 900px;
+/* resize the logo */
+img {
+  width: 15%;
+  height: 15%;
 }
 
-#main h1 {
-  margin-bottom: 20px;
-  font-size: 40px;
-}
-
-#main h4 {
-	font-size: 20px;
-}
-
-#main h5 {
-	font-size: 20px;
-}
-
+/* placing the logo at the top left of the page */
 .logo {
 	margin-left: 10px;
 	margin-top: 40px;
 	text-align: left;
 }
 
-.icon {
-	margin-left: 5px;
+/* content in main container in the center of the page,
+	the page is set to 900px wide */ 
+#main {
+	margin: 0 auto;
+	width: 900px;
 }
 
+/* styling page description */
+#pageDescription {
+	margin: 0 auto 30px 0;
+	text-align: center;
+}
+#main h1 {
+  margin-bottom: 20px;
+  font-size: 40px;
+}
 .about_list {
   text-align: center;
   padding: 0 auto;
@@ -66,23 +68,34 @@ img {
   margin-right: 200px;
 }
 
-#pageDescription {
-	margin: 0 auto 30px 0;
-	text-align: center;
+
+/* styling "Your lists" */
+#main h4 {
+	font-size: 20px;
 }
 
+/* styling "Add more items" content */
 #add {
 	float: right;
+}
+#main h5 {
+	font-size: 20px;
+}
+
+/* styling icons in the lists accordian */
+.icon {
+	margin-left: 5px;
 }
 
 /*---------------------------------------------------*/
 /*ADD ITEMS CONTROL*/
+
+/* styling input textfield */
 .additems {
 	float: right;
 	font-family: 'Average Sans', sans-serif;
 	margin-bottom: 100px;
 }
-
 .additems form {
 	position:relative;
 	font-family: 'Average Sans', sans-serif;
@@ -159,6 +172,7 @@ img {
   }
 }
 
+/* styling buttons */
 .additems input[type=submit] {
   display: inline-block;
   outline: none;
@@ -182,7 +196,6 @@ img {
   background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
 }
-
 .additems input[type=submit]:hover {
   text-decoration: none;
   background: #f47c20;
@@ -190,7 +203,6 @@ img {
   background: -moz-linear-gradient(top,  #f88e11,  #f06015);
   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
 }
-
 .additems input[type=submit]:active {
   position: relative;
   top: 1px;
@@ -202,7 +214,6 @@ img {
 
 /*---------------------------------------------------*/
 /*FOOTER STYLING*/
-
 #footer {
   position: fixed;
      bottom: 0;
@@ -217,7 +228,6 @@ img {
   direction:ltr;
   unicode-bidi:embed;
 }
-
 #footer a {
 	text-decoration:none;
 	padding:6px 8px 7px;
@@ -225,17 +235,14 @@ img {
 	outline:none;
 	display:block;
 }
-
 #footer a:link {
 	color: white;
 	text-decoration:none;
 }
-
 #footer a:hover {
   background-color:#676767;
   color:white;
 }
-
 #footer li {
   list-style: none;
   float:left;
@@ -244,11 +251,9 @@ img {
 
 /*---------------------------------------------------*/
 /*PERSONAL ACCORDION STYLING*/
-
 #lists {
 	float: left;
 }
-
 #accordion {
 	width: 400px;
 	float: left;
@@ -258,39 +263,31 @@ img {
 	text-align: left;
 	font-size: 18px;
 }
-
 #accordion .ui-accordion-content { 
 	font-size: 10pt;
 }
-
 #accordion .ui-accordion-header {
 	cursor: pointer; 
   margin: 0px;  
 }  
-
 #accordion .ui-state-focus { 
 	outline: none; 
 }
-
 .nodisplay {
 	display: none;
 }
-
 .buttons {
 	float: right;
 }
-
 .mediaTitle {
 	font-size: 16px;
 	font-weight: bold;
 	color: #03375d;
 }
-
 .mediaDescription {
 	margin-top: 3px;
 	margin-bottom: 10px;
 }
-
 #deleteItem {
 	margin-left: 20px;
 }
@@ -349,7 +346,6 @@ img {
 	color:white;
 }
 
-
 .staticMenu dd { position:relative; }
 /* DT styles for sliding doors */
 .staticMenu dt a {
@@ -363,11 +359,11 @@ img {
 	position:relative;
 	height: 19px;
 }
+
 /* UL styles */
 #accordionList {
 	list-style-type: none;
 }
-
 .staticMenu dd ul {
 	display:none;
 	list-style:none;
