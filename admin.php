@@ -2,12 +2,14 @@
   session_start();
   require 'connect.php';  
 
+  //Check if Refresh button was pressed
   if (isset($_POST['refresh']) && $_POST['refresh'] == 'Refresh') {
     $msg = "";
   }
   
+  //Check if Register button was pressed
   if (isset($_POST['register']) && $_POST['register'] == 'Register') {
-    
+    //Check for any empty form fields
     if (!isset($_POST['username']) || !isset($_POST['pass']) || !isset($_POST['passconfirm']) || empty($_POST['username']) || empty($_POST['pass']) || empty($_POST['passconfirm'])) {
       $msg = "Please fill in all form fields.";
     }
@@ -45,8 +47,10 @@
       }
     }
   }
-
+  
+  //Check if Remove button was pressed
   if (isset($_POST['remove']) && $_POST['remove'] == 'Remove') {
+    //Check for any empty form fields
     if (!isset($_POST['username']) || !isset($_POST['userconfirm']) || empty($_POST['username']) || empty($_POST['userconfirm']) ) {
       $msg = "Please fill in all form fields.";
     }
@@ -78,22 +82,23 @@
     }
   } 
 
-    if (isset($_POST['add_item']) && $_POST['add_item'] == 'Add') {
-      if (!isset($_POST['title']) || !isset($_POST['item_type']) || !isset($_POST['description']) || 
-          empty($_POST['title']) || empty($_POST['item_type']) || empty($_POST['description']) ) {
-        $msg = "Please fill in all form fields.";
-      }
-      else {
-        // add items to entertainment table
-        $stmt = $conn->prepare("INSERT INTO entertainment (title, description, type) VALUES (:title, :description, :type)");
-        $stmt->execute(array(':title' => $_POST['title'], ':description' => $_POST['description'], ':type' => $_POST['item_type']));
-        $msg = "Item Added.";
-      }
+  //Check if Add Item button was pressed
+  if (isset($_POST['add_item']) && $_POST['add_item'] == 'Add') {
+    if (!isset($_POST['title']) || !isset($_POST['item_type']) || !isset($_POST['description']) || 
+        empty($_POST['title']) || empty($_POST['item_type']) || empty($_POST['description']) ) {
+      $msg = "Please fill in all form fields.";
+    }
+    else {
+      // add items to entertainment table
+      $stmt = $conn->prepare("INSERT INTO entertainment (title, description, type) VALUES (:title, :description, :type)");
+      $stmt->execute(array(':title' => $_POST['title'], ':description' => $_POST['description'], ':type' => $_POST['item_type']));
+      $msg = "Item Added.";
+    }
   } 
 
-    if (isset($_POST['remove_item']) && $_POST['remove_item'] == 'Remove') {
-    
-    
+  //Check if Remove Item button was pressed
+  if (isset($_POST['remove_item']) && $_POST['remove_item'] == 'Remove') {
+    //Check for any empty form fields
     if (!isset($_POST['title']) || !isset($_POST['titleconfirm']) || empty($_POST['title']) || empty($_POST['titleconfirm']) ) {
       $msg = "Please fill in all form fields.";
     }
@@ -107,10 +112,10 @@
       $msg = "Item removed.";
     }
   } 
-
+  
+  //Check if Make Admin button was pressed
   if (isset($_POST['makeadmin']) && $_POST['makeadmin'] == 'Make Admin') {
-    
-    
+    //Check for any empty form fields
     if (!isset($_POST['username']) || !isset($_POST['userconfirm']) || empty($_POST['username']) || empty($_POST['userconfirm']) ) {
       $msg = "Please fill in all form fields.";
     }
@@ -125,9 +130,9 @@
     }
   } 
 
+  //Check if Remove Admin button was pressed
   if (isset($_POST['removeadmin']) && $_POST['removeadmin'] == 'Remove Admin') {
-    
-    
+    //Check for any empty form fields
     if (!isset($_POST['username']) || !isset($_POST['userconfirm']) || empty($_POST['username']) || empty($_POST['userconfirm']) ) {
       $msg = "Please fill in all form fields.";
     }
